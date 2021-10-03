@@ -1,0 +1,12 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 100vh;
+}
+
+#app-content {
+  flex-grow: 1;  
+}
+  
+  

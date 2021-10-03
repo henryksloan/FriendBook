@@ -5,6 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 
+import './index.css';
 import Header from '../Header';
 import Scenario from '../Scenario';
 import NewsFeed from '../NewsFeed';
@@ -16,14 +17,16 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
         <Scenario />
 
-        <Switch>
-          <Route exact path='/' component={NewsFeed} />
-          <Route path="/profile/:user" component={Profile} />
-          <Route path="/settings_general/:section" component={GeneralSettings} />
-        </Switch>
+        <div id="app-content">
+          <Header />
+          <Switch>
+            <Route exact path='/' component={NewsFeed} />
+            <Route path="/profile/:user" component={Profile} />
+            <Route path="/settings_general/:section" component={GeneralSettings} />
+          </Switch>
+        </div>
 
         <Chat />
       </div>

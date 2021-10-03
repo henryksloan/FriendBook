@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './index.css';
+
 function Scenario() {
   return (
     <div className="Scenario">

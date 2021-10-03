@@ -4,9 +4,7 @@
   background-color: #3b5998;
   box-sizing: border-box;
   border-bottom: 1px solid #29487d;
-  position: fixed;
   z-index: 101;
-  margin-left: 291px;
 }
 
 .Header .popup-content {
@@ -77,7 +75,7 @@ header .popup-header {
 
 #user {
   float: right;
-  padding: 0 505px 0 0;
+  padding: 0 214px 0 0;
   display: inline;
   margin: 0;
 }
