@@ -59,7 +59,7 @@ function Header() {
           pathname: '/profile/alex_doe',
           state: { fromNewsFeed: true }
         }} onClick={() => registerClick("Clicked on Alex Doe's", "profile link to visit their profile page", 'Header')}>
-          <img id='profile-pic' src={alex_profile_img} />
+          <img className='profile-pic' src={alex_profile_img} />
           <li id='username' className='header-text'>  Alex</li>
         </Link>
 
@@ -73,28 +73,28 @@ function Header() {
         <li className='header-text' data-tip="Not Implemented">Create</li>
 
         <li className='header-text' data-tip="Not Implemented">
-          <img id='profile-pic' src={find_friends} />
+          <img className='profile-pic' src={find_friends} />
         </li>
 
         <li className='header-text' data-tip="Not Implemented">
-          <img id='profile-pic' src={messages} />
+          <img className='profile-pic' src={messages} />
         </li>
 
         <li className='header-text'>
           <Button onClick={onClickNotifications}>
-            <img id='profile-pic' src={showNotificationIcon ? notifications_unread : notifications_black} />
+            <img className='profile-pic' src={showNotificationIcon ? notifications_unread : notifications_black} />
           </Button>
         </li>
 
         <li className='header-text' data-tip="Not Implemented">
-          <img id='profile-pic' src={quick_help} />
+          <img className='profile-pic' src={quick_help} />
         </li>
 
         <li className='header-text'>
           <Button onClick={onClickSettings}>
             {highlight
-              ? <img id='profile-pic' src={settings_highlight} />
-              : <img id='profile-pic' src={settings_black} />
+              ? <img className='profile-pic' src={settings_highlight} />
+              : <img className='profile-pic' src={settings_black} />
             }
           </Button>
         </li>

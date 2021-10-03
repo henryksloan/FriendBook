@@ -60,7 +60,7 @@ header .popup-header {
   height: 25px;
 }
 
-#profile-pic {
+.profile-pic {
   width: 24px;
   height: 24px;
   position: relative;
