@@ -54,55 +54,57 @@ function Header() {
       }} onClick={() => registerClick('Clicked on the FriendBook Button', 'to go to the NewsFeed', 'Header')}><h1 id="logo">FriendBook</h1>
       </Link>
 
-      <div id='user'>
+      <ul id='user'>
         <Link to={{
           pathname: '/profile/alex_doe',
           state: { fromNewsFeed: true }
-        }} onClick={() => registerClick("Clicked on Alex Doe's", "profile link to visit their profile page", 'Header')}><img id='profile-pic' src={alex_profile_img} /><span id='header-text'>  Alex</span></Link>
+        }} onClick={() => registerClick("Clicked on Alex Doe's", "profile link to visit their profile page", 'Header')}>
+          <img id='profile-pic' src={alex_profile_img} />
+          <li id='username' className='header-text'>  Alex</li>
+        </Link>
 
-        <div id='header-text'>
-          <Link to={{
-            pathname: '/',
-            state: { fromNewsFeed: true }
-          }} onClick={() => registerClick('Clicked on the Home Button', 'to go to the NewsFeed', 'Header')}><span>Home</span></Link>
+        <Link to={{
+          pathname: '/',
+          state: { fromNewsFeed: true }
+        }} onClick={() => registerClick('Clicked on the Home Button', 'to go to the NewsFeed', 'Header')}>
+          <li className='header-text'>Home</li>
+        </Link>
 
-          <span data-tip="Not Implemented">Create</span>
+        <li className='header-text' data-tip="Not Implemented">Create</li>
 
-          <span data-tip="Not Implemented">
-            <img id='profile-pic' src={find_friends} />
-          </span>
+        <li className='header-text' data-tip="Not Implemented">
+          <img id='profile-pic' src={find_friends} />
+        </li>
 
-          <span data-tip="Not Implemented">
-            <img id='profile-pic' src={messages} />
-          </span>
+        <li className='header-text' data-tip="Not Implemented">
+          <img id='profile-pic' src={messages} />
+        </li>
 
-          <span>
-            <Button onClick={onClickNotifications}>
-              <img id='profile-pic' src={showNotificationIcon ? notifications_unread : notifications_black} />
-            </Button>
-          </span>
+        <li className='header-text'>
+          <Button onClick={onClickNotifications}>
+            <img id='profile-pic' src={showNotificationIcon ? notifications_unread : notifications_black} />
+          </Button>
+        </li>
 
-          <span data-tip="Not Implemented">
-            <img id='profile-pic' src={quick_help} />
-          </span>
+        <li className='header-text' data-tip="Not Implemented">
+          <img id='profile-pic' src={quick_help} />
+        </li>
 
-          <span>
-            <Button onClick={onClickSettings}>
-              {highlight
-                ? <img id='profile-pic' src={settings_highlight} />
-                : <img id='profile-pic' src={settings_black} />
-              }
-            </Button>
-          </span>
+        <li className='header-text'>
+          <Button onClick={onClickSettings}>
+            {highlight
+              ? <img id='profile-pic' src={settings_highlight} />
+              : <img id='profile-pic' src={settings_black} />
+            }
+          </Button>
+        </li>
 
-          {renderSettings &&
-            <SettingsDropdown onClick={onClickSettings} destroy={() => setRenderSettings(false)} />}
+        {renderSettings &&
+          <SettingsDropdown onClick={onClickSettings} destroy={() => setRenderSettings(false)} />}
 
-          {renderNotifications &&
-            <NotificationsDropdown onClick={onClickNotifications} destroy={() => setRenderNotifications(false)} />}
-        </div>
-      </div>
-
+        {renderNotifications &&
+          <NotificationsDropdown onClick={onClickNotifications} destroy={() => setRenderNotifications(false)} />}
+      </ul>
     </header>
   );
 }

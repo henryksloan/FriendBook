@@ -22,13 +22,13 @@
 
 .Header #logo {
   font-size: 24px;
-  padding-left: 65.5px;
   font-size: 24px;
   padding-left: 65.5px;
+  padding-right: 5px;
   margin: 0px;
 }
 
-#logo, #header-text {
+#logo, .header-text {
   color: white;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12px;
@@ -36,13 +36,19 @@
   line-height: 42px;
   display: inline;
   font-weight: bold;
-  padding:0 5px;
 }
 
-#header-text {
+#user ul {
+  padding-right: 5px;
+} 
+
+.header-text {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  color: white;
+  display: inline;
+  padding-left: 12px;
 }
 
 header .popup-content {
@@ -56,12 +62,6 @@ header .popup-header {
   height: 25px;
 }
 
-#header-text span {
-  color: white;
-  display: inline;
-  padding-left: 12px;
-}
-
 #profile-pic {
   width: 24px;
   height: 24px;
@@ -71,10 +71,15 @@ header .popup-header {
   border-radius: 50%;
 }
 
+#username {
+  padding: 0 10px 0 5px;
+}
+
 #user {
   float: right;
-  padding-right: 500px;
+  padding: 0 505px 0 0;
   display: inline;
+  margin: 0;
 }
 
 @media (max-width: 1031px) {
