@@ -1,0 +1,44 @@
+#page-content {
+  padding: inherit;
+  background-color: #e9ebee;
+  position: fixed;
+  top: 42px;
+  bottom: 0;
+  width: 100%;
+  overflow: auto;
+  z-index: -99;
+  margin-left: 291px;
+}
+
+/* TODO: Fix overlap on low-width screens */
+#left-navigation {
+  position: fixed;
+  display: inline-block;
+  list-style-type: none;
+  width: 180px;
+  padding-left: 65.5px;
+  margin: 12px;
+}
+
+#left-navigation li{
+  margin-bottom: 10px;
+}
+
+#left-navigation a {
+  display: inline-block;
+}
+
+#left-navigation img {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  margin-right: 6px;
+}
+
+#left-navigation-words, #left-navigation-profile_name{
+  color:#1d2129;
+}
+
+#left-navigation-words{
+  font-weight: 600;
+}

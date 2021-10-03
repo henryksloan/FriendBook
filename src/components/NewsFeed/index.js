@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
+import './index.css';
 import PostArea from './PostArea'
 import ProfileLink from '../ProfileLink'
 
@@ -22,7 +23,7 @@ function NewsFeed() {
 
         <li>
           <img className='profile-pic' src={news_feed_icon} />
-          <Link to='/'> <span className="left-navigition-text">News Feed</span></Link>
+          <Link to='/'> <span className="left-navigation-text">News Feed</span></Link>
         </li>
       </ul>
       <PostArea />
