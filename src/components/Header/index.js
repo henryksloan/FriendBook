@@ -16,11 +16,9 @@ import settings_highlight from '../../assets/icons/settings_highlight.png';
 import settings_black from '../../assets/icons/settings_black.png';
 
 function Header() {
-  /* eslint-disable no-unused-vars */
   const [showNotificationIcon, setShowNotificationIcon] = useState(true);
   const [renderSettings, setRenderSettings] = useState(false);
   const [renderNotifications, setRenderNotifications] = useState(false);
-  /* eslint-enable no-unused-vars */
 
   function onClickNotifications() {
     setRenderNotifications(!renderNotifications);

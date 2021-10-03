@@ -9,3 +9,116 @@
   z-index: 100;
   margin: 1vh 8px;
 }
+
+.scenario-head {
+  font-size: 15px;
+  text-align: center;
+  margin: 20px 10px 0px 10px;
+}
+
+.scenario-text {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #57575d;
+  padding: 5px;
+  margin: 0px 12px;
+  text-align: left;
+  overflow-wrap: break-word;
+  white-space: normal;
+  font-weight: 520;
+}
+
+.scenario-task {
+  font-size: 12px;
+  line-height: 1.9;
+  color: red;
+  padding-left: 5px;
+  margin: 0 12px;
+  text-align: left;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.scenario-list {
+  margin-top: 5px;
+  margin-right: 20px;
+  padding-left: 50px;
+}
+
+.scenario-list li {
+  list-style-type: none;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.scenario-list-item label {
+  display: inline-block;
+  padding: 4px 8px;
+  background: white;
+  text-align: left;
+  font-size: 12px;
+  white-space: pre-line;
+  margin-bottom: 9px;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  content: " ";
+  width: 100%;
+  background-color: black;
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -120px;
+}
+
+#experiment-done {
+  position: relative;
+  bottom: 15px;
+  left: 85px;
+}
+
+.finish-button {
+  width: 90px;
+  height: 35px;
+  background-color: #4cd964;
+  border-radius: 25px;
+  vertical-align: middle;
+  box-shadow: 0 2px 4px rgba(0,0,0,.4);
+  text-align: center;
+  cursor: pointer;
+}
+
+.finish-button label {
+  padding: 0 2px;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+}
+
+.scenario-list-item:hover .tooltiptext{
+  visibility: visible;
+  display: inline;
+}
+
+.tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left:50%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
