@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
+import './index.css';
 import Button from '../Button';
 import SettingsDropdown from './SettingsDropdown';
 import NotificationsDropdown from './NotificationsDropdown';
@@ -60,48 +61,45 @@ function Header() {
         }} onClick={() => registerClick("Clicked on Alex Doe's", "profile link to visit their profile page", 'Header')}><img id='profile-pic' src={alex_profile_img} /><span id='header-text'>  Alex</span></Link>
 
         <div id='header-text'>
-          <p><Link to={{
+          <Link to={{
             pathname: '/',
             state: { fromNewsFeed: true }
           }} onClick={() => registerClick('Clicked on the Home Button', 'to go to the NewsFeed', 'Header')}><span>Home</span></Link>
-          </p>
 
-          <p data-tip="Not Implemented">Create</p>
+          <span data-tip="Not Implemented">Create</span>
 
-          <p data-tip="Not Implemented">
+          <span data-tip="Not Implemented">
             <img id='profile-pic' src={find_friends} />
-          </p>
+          </span>
 
-          <p data-tip="Not Implemented">
+          <span data-tip="Not Implemented">
             <img id='profile-pic' src={messages} />
-          </p>
+          </span>
 
-          <p>
+          <span>
             <Button onClick={onClickNotifications}>
-              <img id='profile-pic' src={showNotificationIcon ? { notifications_unread } : { notifications_black }} />
+              <img id='profile-pic' src={showNotificationIcon ? notifications_unread : notifications_black} />
             </Button>
-          </p>
+          </span>
 
-          <p data-tip="Not Implemented">
+          <span data-tip="Not Implemented">
             <img id='profile-pic' src={quick_help} />
-          </p>
+          </span>
 
-          <p>
-
+          <span>
             <Button onClick={onClickSettings}>
               {highlight
                 ? <img id='profile-pic' src={settings_highlight} />
                 : <img id='profile-pic' src={settings_black} />
               }
             </Button>
-          </p>
+          </span>
 
           {renderSettings &&
             <SettingsDropdown onClick={onClickSettings} destroy={() => setRenderSettings(false)} />}
 
           {renderNotifications &&
             <NotificationsDropdown onClick={onClickNotifications} destroy={() => setRenderNotifications(false)} />}
-
         </div>
       </div>
 

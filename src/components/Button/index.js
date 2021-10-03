@@ -1,10 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Button() {
+function Button({ children }) {
   return (
-    <div className="Button">
-    </div>
+    <a className="Button">
+      {children}
+    </a>
   );
 }
+
+Button.propTypes = {
+  children: PropTypes.element.isRequired
+};
 
 export default Button;
