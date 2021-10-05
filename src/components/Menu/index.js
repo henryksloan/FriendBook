@@ -56,7 +56,7 @@ function Menu({ title, labelType, openUpwards, options, seeMoreOptions, seeAllOp
     </Button>;
 
   const menuList = open && <div className="menu-list">
-    {title && <p>title</p>}
+    {title && <p>{title}</p>}
     {buttons}
   </div>;
 

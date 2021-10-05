@@ -45,7 +45,6 @@ function AudienceMenu({ title, options }) {
       {/* renderFriendsExceptPopup && friendsExceptPopup */}
       {/* renderSpecificFriendsPopup && specificFriendsPopup */}
       {/* renderCustomFriendsPopup && customFriendsPopup */}
-      {title}
       <Menu title={title} labelType={menuLabelTypes.CURRENT} options={menuOptions} currentOption={() => audienceText(currentAudience)} />
     </span>
   );
