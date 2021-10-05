@@ -18,7 +18,7 @@ function ProfileLink({ name, fromNewsFeed, onClick }) {
 ProfileLink.propTypes = {
   name: PropTypes.string.isRequired,
   fromNewsFeed: PropTypes.bool,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func
 };
 
 export default ProfileLink;

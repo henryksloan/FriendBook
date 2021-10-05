@@ -4,23 +4,32 @@
     "node": true,
     "browser": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   "rules": {
     "strict": "off",
     "no-console": "off",
     "import/no-unresolved": "off",
-    "indent": ["error", 2]
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ]
   },
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": 2015,
     "ecmaFeatures": {
-    "jsx": true
+      "jsx": true
     }
   },
   "settings": {
     "react": {
-       "version": "detect"
+      "version": "detect"
     }
   }
 }
