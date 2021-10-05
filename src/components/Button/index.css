@@ -1,0 +1,19 @@
+.Button {
+  line-height: 26px;
+  font-weight: bold;
+  font-size: 12px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.Button.confirm {
+  background-color: #4267b2;
+  border: 1px solid #4267b2;
+  color: #fff;
+}
+
+.Button.cancel {
+  background-color: #f6f7f9;
+  border: 1px solid #ced0d4;
+  color: #4b4f56;
+}

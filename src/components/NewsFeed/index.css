@@ -14,7 +14,7 @@
   list-style-type: none;
   width: 180px;
   padding-left: 65.5px;
-  margin: 12px;
+  margin: 12px 42.5px 0 12px;
 }
 
 #left-navigation li{
@@ -32,10 +32,10 @@
   margin-right: 6px;
 }
 
-#left-navigation-words, #left-navigation-profile_name{
+.left-navigation-text, #left-navigation-profile_name {
   color:#1d2129;
 }
 
-#left-navigation-words{
+.left-navigation-text {
   font-weight: 600;
 }

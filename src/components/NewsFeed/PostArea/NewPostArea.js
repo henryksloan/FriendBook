@@ -6,6 +6,7 @@ import AudienceMenu from '../../AudienceMenu';
 
 function NewPostArea({ onPost, forTimeline, whoseTimeline }) {
   /* eslint-disable no-unused-vars */
+  const [renderUploadPopup, setRenderUploadPopup] = useState(false);
   const [photo, setPhoto] = useState("");
   const [postText, setPostText] = useState("");
   /* eslint-enable no-unused-vars */
@@ -29,9 +30,9 @@ function NewPostArea({ onPost, forTimeline, whoseTimeline }) {
           <img src={this.state.photo}
             style={{ width: 60, height: 60 }} />}
         <hr />
-        <div id='actions'>
+        <div id='new-post-actions'>
           <Button type="confirm" onClick={onClickPost}>Post</Button>
-          <Button type="cancel" onClick={() => { this.setState({ renderUploadPopup: true }) }}>Photo/Video</Button>
+          <Button type="cancel" onClick={() => { setRenderUploadPopup(true) }}>Photo/Video</Button>
           {<AudienceMenu id="new-post-audience-menu" title="Who should see this?"
             options={["public", "friends", "friends_except", "only_me"]} />}
         </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
+import './index.css';
 
 function Button({ children, id, type, isDisabled, href, routeTo, onClick }) {
   const disabled = (isDisabled && isDisabled()) ? " disabled" : "";
