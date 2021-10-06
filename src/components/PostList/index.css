@@ -21,14 +21,6 @@
   font: inherit;
 }
 
-.NewPostArea hr {
-  display: block;
-  unicode-bidi: isolate;
-  border-style: inset;
-  border-width: 1px;
-  border-color: #e9ebee;
-}
-
 #new-post-actions {
   height: 33.5px;
 }

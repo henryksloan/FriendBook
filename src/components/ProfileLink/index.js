@@ -6,11 +6,13 @@ import { getFullName } from '../../utils/profile';
 
 function ProfileLink({ name, fromNewsFeed, onClick }) {
   return (
-    <Link to={{
-      pathname: `/profile/${name}`,
-      state: { fromNewsFeed }
-    }} onClick={onClick !== undefined ? onClick : null}>
-      <span className="ProfileLink" id="left-navigation-profile-name">{getFullName(name)}</span>
+    <Link className="ProfileLink"
+      to={{
+        pathname: `/profile/${name}`,
+        state: { fromNewsFeed }
+      }} onClick={onClick !== undefined ? onClick : null}
+    >
+      <span id="left-navigation-profile-name">{getFullName(name)}</span>
     </Link>
   );
 }

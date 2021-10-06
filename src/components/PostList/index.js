@@ -10,7 +10,7 @@ function PostList({ forTimeline, whoseTimeline }) {
     <div className="PostList">
       <NewPostArea onPost={() => { /* TODO: Add to posts localstorage and refresh posts */ }} forTimeline={forTimeline} whoseTimeline={whoseTimeline} />
       { /* this.getPosts() */}
-      <Post name="alex_doe">Hello, World!</Post>
+      <Post name="alex_doe" time="Just now" audience="Public">test</Post>
     </div>
   );
 }

@@ -5,9 +5,9 @@ import { replaceNamesWithLinks } from '../../../utils/profile';
 
 function PostText({ children, userTagRemoved }) {
   return (
-    <div className="PostText">
+    <p className="PostText">
       {replaceNamesWithLinks(children, userTagRemoved)}
-    </div>
+    </p>
   );
 }
 

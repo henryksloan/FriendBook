@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { getFullName, getProfilePic } from '../../../utils/profile'
 import { audienceText } from '../../../utils/audience'
 
+import './index.css';
 import ProfileLink from '../../ProfileLink';
 import PostText from './PostText';
 import Menu, { menuLabelTypes } from '../../Menu';
@@ -29,10 +30,10 @@ function Post({ name, time, audience, photo, liked, children }) {
   return (
     <div className="Post">
       <div className="post-header">
-        <img id="post-profile-pic" src={getProfilePic(name)} />
-        <div id="post-header-text">
+        <img className="post-profile-pic" src={getProfilePic(name)} />
+        <div className="post-header-text">
           <ProfileLink name={name} />
-          <p id="post-time">{time}</p>
+          <p className="post-time">{time}</p>
           {" · "}
           <p style={{ display: "inline" }}>{audienceText(audience)}</p>
         </div>
@@ -43,9 +44,11 @@ function Post({ name, time, audience, photo, liked, children }) {
       {photo && <img src={photo} width="100%" height="100%"></img>}
 
       <hr />
-      <Button><img src={like_icon} />{liked ? "Unlike" : "Like"}</Button>
-      <Button><img src={comment_icon} />Comment</Button>
-      <Button><img src={share_icon} />Share</Button>
+      <div className="post-actions">
+        <Button><img src={like_icon} /> {liked ? "Unlike" : "Like"}</Button>
+        <Button><img src={comment_icon} /> Comment</Button>
+        <Button><img src={share_icon} /> Share</Button>
+      </div>
       <hr />
 
       <Comment name="sasha_riley">Test comment</Comment>
