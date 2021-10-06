@@ -1,38 +1,22 @@
-import alex_profile_img from '../assets/users/alex_profile_img.jpg';
-import bill_profile_img from '../assets/users/bill_profile_img.jpg';
-import coke_profile_img from '../assets/users/coke_profile_img.jpg';
-import esther_profile_img from '../assets/users/esther_profile_img.jpg';
-import ira_profile_img from '../assets/users/ira_profile_img.jpg';
-import jack_profile_img from '../assets/users/jack_profile_img.jpg';
-import jim_profile_img from '../assets/users/jim_profile_img.jpg';
-import kyle_profile_img from '../assets/users/kyle_profile_img.jpg';
-import loren_profile_img from '../assets/users/loren_profile_img.jpg';
-import lydia_profile_img from '../assets/users/lydia_profile_img.jpg';
-import sasha_profile_img from '../assets/users/sasha_profile_img.jpg';
-import starbucks_profile_img from '../assets/users/starbucks_profile_img.jpg';
-import tanya_profile_img from '../assets/users/tanya_profile_img.jpg';
-import trevin_profile_img from '../assets/users/trevin_profile_img.jpg';
-import vice_profile_img from '../assets/users/vice_profile_img.jpg';
-
 const profilePics = {
-  'alex_doe': alex_profile_img,
-  'bill_gates': bill_profile_img,
-  'coca_cola': coke_profile_img,
-  'esther_rorgash': esther_profile_img,
-  'ira_slipan': ira_profile_img,
-  'jack_scout': jack_profile_img,
-  'jim_mend': jim_profile_img,
-  'kyle_parker': kyle_profile_img,
-  'loren_payton': loren_profile_img,
-  'lydia_chopover': lydia_profile_img,
-  'sasha_riley': sasha_profile_img,
-  'starbucks': starbucks_profile_img,
-  'tanya_strotman': tanya_profile_img,
-  'trevin_noushy': trevin_profile_img,
-  'vice_news': vice_profile_img
+  'alex_doe': process.env.PUBLIC_URL + '/assets/users/alex_profile_img.jpg',
+  'bill_gates': process.env.PUBLIC_URL + '/assets/users/bill_profile_img.jpg',
+  'coca_cola': process.env.PUBLIC_URL + '/assets/users/coke_profile_img.jpg',
+  'esther_rorgash': process.env.PUBLIC_URL + '/assets/users/esther_profile_img.jpg',
+  'ira_slipan': process.env.PUBLIC_URL + '/assets/users/ira_profile_img.jpg',
+  'jack_scout': process.env.PUBLIC_URL + '/assets/users/jack_profile_img.jpg',
+  'jim_mend': process.env.PUBLIC_URL + '/assets/users/jim_profile_img.jpg',
+  'kyle_parker': process.env.PUBLIC_URL + '/assets/users/kyle_profile_img.jpg',
+  'loren_payton': process.env.PUBLIC_URL + '/assets/users/loren_profile_img.jpg',
+  'lydia_chopover': process.env.PUBLIC_URL + '/assets/users/lydia_profile_img.jpg',
+  'sasha_riley': process.env.PUBLIC_URL + '/assets/users/sasha_profile_img.jpg',
+  'starbucks': process.env.PUBLIC_URL + '/assets/users/starbucks_profile_img.jpg',
+  'tanya_strotman': process.env.PUBLIC_URL + '/assets/users/tanya_profile_img.jpg',
+  'trevin_noushy': process.env.PUBLIC_URL + '/assets/users/trevin_profile_img.jpg',
+  'vice_news': process.env.PUBLIC_URL + '/assets/users/vice_profile_img.jpg'
 };
 
-const defaultProfilePic = 'default_profile_img.jpg';
+const defaultProfilePic = process.env.PUBLIC_URL + '/assets/users/default_profile_img.jpg'
 
 const fullNames = {
   'alex_doe': "Alex Doe",

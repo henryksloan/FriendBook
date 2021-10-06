@@ -41,7 +41,7 @@ function Post({ name, time, audience, photo, liked, content }) {
       </div>
 
       <PostText>{content}</PostText>
-      {photo && <img src={photo} width="100%" height="100%"></img>}
+      {photo && <img src={process.env.PUBLIC_URL + photo} width="100%" height="100%"></img>}
 
       <hr />
       <div className="post-actions">

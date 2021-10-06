@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { getProfilePic } from '../../utils/profile';
+
 import './index.css';
 import Button from '../Button';
 import SettingsDropdown from './SettingsDropdown';
 import NotificationsDropdown from './NotificationsDropdown';
 
-import alex_profile_img from '../../assets/users/alex_profile_img.jpg';
 import find_friends from '../../assets/icons/find_friends.png';
 import messages from '../../assets/icons/messages.png';
 import notifications_unread from '../../assets/icons/notifications_unread.png';
@@ -57,7 +58,7 @@ function Header() {
           pathname: '/profile/alex_doe',
           state: { fromNewsFeed: true }
         }} onClick={() => registerClick("Clicked on Alex Doe's", "profile link to visit their profile page", 'Header')}>
-          <img className='profile-pic' src={alex_profile_img} />
+          <img className='profile-pic' src={getProfilePic("alex_doe")} />
           <li id='username' className='header-text'>  Alex</li>
         </Link>
 
