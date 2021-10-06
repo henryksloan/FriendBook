@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import { useLocalStorage } from '../../hooks/local_storage';
 
 import './index.css';
+import defaultPosts from '../../data/posts.json';
 import NewPostArea from './NewPostArea';
 import Post from './Post';
 
 function PostList({ forTimeline, whoseTimeline }) {
-  const [posts, setPosts] = useLocalStorage("posts", []);
+  const [posts, setPosts] = useLocalStorage("posts", defaultPosts);
 
   function onPost(content, photo, audience) {
     // TODO: Adaptation stuff
