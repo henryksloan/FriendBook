@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import './index.css';
 import Button from '../Button';
 import MenuButton, { menuOptionShape } from './MenuButton';
 

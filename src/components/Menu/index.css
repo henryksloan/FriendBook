@@ -1,0 +1,26 @@
+.menu-list {
+  background-color: #fff;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.menu-list p {
+  padding: 8px 12px 4px 12px;
+  margin: 0;
+  font-size: 12px;
+  color: #4b4f56;
+}
+
+.menu-list a {
+  padding: 8px 12px;
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+#menu-button-subtext {
+  padding: 0;
+  font-size: 11px;
+}

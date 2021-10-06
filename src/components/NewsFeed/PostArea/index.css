@@ -33,7 +33,7 @@
   height: 33.5px;
 }
 
-#new-post-actions .Button {
+#new-post-actions .Button.confirm, .Button.cancel {
   padding: 0 5px 0 5px;
   display: inline-block;
 }
@@ -44,4 +44,19 @@
 
 #new-post-actions .AudienceMenu {
   float: right;
+}
+
+#new-post-actions .Menu {
+  position: relative;
+}
+
+#new-post-actions .menu-list {
+  display: inline;
+  margin-top: 27px;
+  position: absolute;
+  right: 0;
+}
+
+.audience-menu .menu-list {
+  min-width: 180px;
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import './index.css';
 import Menu, { menuLabelTypes } from '../Menu';
 import { audienceText, audienceListItemText } from '../../utils/audience'
 
