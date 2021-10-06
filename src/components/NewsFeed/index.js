@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 import './index.css';
-import PostArea from './PostArea'
+import PostList from '../PostList'
 import ProfileLink from '../ProfileLink'
 
 import alex_profile_img from '../../assets/users/alex_profile_img.jpg';
 import news_feed_icon from '../../assets/icons/news_feed.jpg';
 
 function NewsFeed() {
+  // TODO
   function registerClick() {
     // registerEvent("Clicked on Alex Doe'\s profile link", "to visit their profile page", " From NewsFeed-LeftSide");
   }
@@ -26,7 +27,7 @@ function NewsFeed() {
           <Link to='/'> <span className="left-navigation-text">News Feed</span></Link>
         </li>
       </ul>
-      <PostArea />
+      <PostList />
     </div>
   );
 }

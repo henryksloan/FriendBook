@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../../Button';
-import AudienceMenu from '../../AudienceMenu';
+import Button from '../Button';
+import AudienceMenu from '../AudienceMenu';
 
 function NewPostArea({ onPost, forTimeline, whoseTimeline }) {
   /* eslint-disable no-unused-vars */

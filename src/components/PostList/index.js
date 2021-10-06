@@ -4,18 +4,18 @@ import PropTypes from 'prop-types';
 import './index.css';
 import NewPostArea from './NewPostArea';
 
-function PostArea({ forTimeline, whoseTimeline }) {
+function PostList({ forTimeline, whoseTimeline }) {
   return (
-    <div className="PostArea">
+    <div className="PostList">
       <NewPostArea onPost={() => { /* TODO: Add to posts localstorage and refresh posts */ }} forTimeline={forTimeline} whoseTimeline={whoseTimeline} />
       { /* this.getPosts() */}
     </div>
   );
 }
 
-PostArea.propTypes = {
+PostList.propTypes = {
   forTimeline: PropTypes.bool,
   whoseTimeline: PropTypes.string,
 };
 
-export default PostArea;
+export default PostList;
