@@ -51,7 +51,7 @@ function Post({ name, time, audience, photo, liked, children }) {
       </div>
       <hr />
 
-      <Comment name="sasha_riley">Test comment</Comment>
+      <Comment name="alex_doe">test</Comment>
       <NewCommentArea />
     </div>
   );

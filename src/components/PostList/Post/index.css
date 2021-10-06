@@ -55,3 +55,30 @@ color:#365899;
 .post-actions .Button {
   padding-right: 30px;
 }
+
+.comment-profile-pic {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-right: 9px;
+  border-radius: 50%;
+}
+
+.comment-content {
+  display: inline-block;
+}
+
+.Comment .ProfileLink {
+  color: #365899;
+  font-weight: bold;
+  display: inline;
+}
+
+.Comment p {
+  display: inline;
+}
+
+.comment-actions .Button.default:not(:last-child)::after {
+  content: '·';
+  padding: 0 3px;
+}

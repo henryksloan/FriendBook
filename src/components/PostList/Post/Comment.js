@@ -12,20 +12,14 @@ function Comment({ name, liked, children }) {
   // TODO: Implement button actions
   return (
     <div className="Comment">
-      <img id='comment-profile-pic' src={getProfilePic(name)} />
-      <div id='comment-content'>
-        <span id="comment-name"><ProfileLink name={name} /></span>
+      <img className='comment-profile-pic' src={getProfilePic(name)} />
+      <div className='comment-content'>
+        <ProfileLink name={name} />
         <p>{' '}{replaceNamesWithLinks(children)}</p>
-        <div id='comment-actions'>
+        <div className='comment-actions'>
           <Button onClick={() => { } /*this.onClickLike*/}>{liked ? "Unlike" : "Like"}</Button>
-          <span id='comment-actions-dot'>·</span>
           <Button onClick={() => setRenderReplyArea(true)}>Reply</Button>
-          {(name != 'alex_doe') && (
-            <template>
-              <span id='comment-actions-dot'>·</span>
-              <Button onClick={() => { } /*this.onClickDelete*/}>Reply</Button>
-            </template>
-          )}
+          {(name == 'alex_doe') && <Button onClick={() => { } /*this.onClickDelete*/}>Delete</Button>}
         </div>
       </div>
       {renderReplyArea && <NewCommentArea />}
