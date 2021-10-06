@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
+
+import useOutsideClickDetector from '../../hooks/outside_click_detector';
 
 import './index.css';
 import Button from '../Button';
@@ -15,16 +17,19 @@ export const menuLabelTypes = {
   GEAR: "gear",
 }
 
-function Menu({ title, labelType, openUpwards, options, seeMoreOptions, seeAllOptions, onClick, currentOption }) {
+function Menu({ title, labelType, openUpwards, options, seeMoreOptions, seeAllOptions, currentOption }) {
   const [open, setOpen] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const [showAll, setShowAll] = useState(false);
+
+  const menuRef = useRef(null);
+  useOutsideClickDetector(menuRef, () => setOpen(false));
 
   function optionsToButton(options) {
     return options.map((option, index) =>
       <MenuButton key={index} id={option.id} text={option.text} subtext={option.subtext}
         onClick={id => {
-          onClick(id);
+          option.onClick(id);
           setOpen(false);
         }} />);
   }
@@ -62,7 +67,7 @@ function Menu({ title, labelType, openUpwards, options, seeMoreOptions, seeAllOp
   </div>;
 
   return (
-    <div className="Menu">
+    <div className="Menu" ref={menuRef}>
       {openUpwards && menuList}
       {openButton}
       {!openUpwards && menuList}
@@ -77,7 +82,6 @@ Menu.propTypes = {
   options: PropTypes.arrayOf(PropTypes.exact(menuOptionShape)).isRequired,
   seeMoreOptions: PropTypes.arrayOf(PropTypes.exact(menuOptionShape)),
   seeAllOptions: PropTypes.arrayOf(PropTypes.exact(menuOptionShape)),
-  onClick: PropTypes.func,
   currentOption: PropTypes.func,
 };
 
