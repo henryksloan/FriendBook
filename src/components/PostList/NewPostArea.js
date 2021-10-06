@@ -12,8 +12,10 @@ function NewPostArea({ onPost, forTimeline, whoseTimeline }) {
   /* eslint-enable no-unused-vars */
 
   function onClickPost() {
-    // TODO: Adaptation stuff
-    onPost();
+    // TODO: Get audience from AudienceMenu
+    // TODO: In general, use audience id's like "public", then posts can use a utility to make them pretty like "Public"
+    const audience = "public";
+    onPost(postText, photo, audience);
   }
 
   const placeholder = (forTimeline && whoseTimeline != "alex_doe")

@@ -16,7 +16,7 @@ import like_icon from '../../../assets/icons/like_icon.png';
 import comment_icon from '../../../assets/icons/comment_icon.png';
 import share_icon from '../../../assets/icons/share_icon.png';
 
-function Post({ name, time, audience, photo, liked, children }) {
+function Post({ name, time, audience, photo, liked, content }) {
   // TODO: Tweak wordings (e.g. "Hide from timeline")
   // TODO: Add onClick functions
   // TODO: Only show actions that make sense for the post
@@ -40,7 +40,7 @@ function Post({ name, time, audience, photo, liked, children }) {
         <Menu labelType={menuLabelTypes.HORIZONTAL_DOTS} options={menuOptions} />
       </div>
 
-      <PostText>{children}</PostText>
+      <PostText>{content}</PostText>
       {photo && <img src={photo} width="100%" height="100%"></img>}
 
       <hr />
@@ -63,7 +63,7 @@ Post.propTypes = {
   audience: PropTypes.string,
   photo: PropTypes.string,
   liked: PropTypes.bool,
-  children: PropTypes.node
+  content: PropTypes.string
 };
 
 export default Post;
