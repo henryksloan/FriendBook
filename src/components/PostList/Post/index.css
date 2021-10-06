@@ -82,3 +82,12 @@ color:#365899;
   content: '·';
   padding: 0 3px;
 }
+
+.Post .NewCommentArea {
+  resize: none;
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font: inherit;
+  padding: 3px 0px 5px 9px;
+}

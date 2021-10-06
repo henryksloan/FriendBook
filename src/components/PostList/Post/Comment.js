@@ -22,7 +22,7 @@ function Comment({ name, liked, children }) {
           {(name == 'alex_doe') && <Button onClick={() => { } /*this.onClickDelete*/}>Delete</Button>}
         </div>
       </div>
-      {renderReplyArea && <NewCommentArea />}
+      {renderReplyArea && <NewCommentArea type="reply" />}
     </div>
   );
 }
