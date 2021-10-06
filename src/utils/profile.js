@@ -61,3 +61,13 @@ export function getProfilePic(name) {
 export function getFullName(name) {
   return fullNames[name];
 }
+
+export function replaceNamesWithLinks(text, excludeUser = false) {
+  // TODO: Implement
+  if (excludeUser) {
+    console.log(allFullNames);
+    return text;
+  } else {
+    return text;
+  }
+}

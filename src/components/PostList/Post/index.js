@@ -8,6 +8,8 @@ import ProfileLink from '../../ProfileLink';
 import PostText from './PostText';
 import Menu, { menuLabelTypes } from '../../Menu';
 import Button from '../../Button';
+import Comment from './Comment';
+import NewCommentArea from './NewCommentArea';
 
 import like_icon from '../../../assets/icons/like_icon.png';
 import comment_icon from '../../../assets/icons/comment_icon.png';
@@ -45,6 +47,9 @@ function Post({ name, time, audience, photo, liked, children }) {
       <Button><img src={comment_icon} />Comment</Button>
       <Button><img src={share_icon} />Share</Button>
       <hr />
+
+      <Comment name="sasha_riley">Test comment</Comment>
+      <NewCommentArea />
     </div>
   );
 }

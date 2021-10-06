@@ -1,17 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { allFullNames } from '../../../utils/profile';
-
-function replaceNamesWithLinks(text, excludeUser = false) {
-  // TODO: Implement
-  if (excludeUser) {
-    console.log(allFullNames);
-    return text;
-  } else {
-    return text;
-  }
-}
+import { replaceNamesWithLinks } from '../../../utils/profile';
 
 function PostText({ children, userTagRemoved }) {
   return (

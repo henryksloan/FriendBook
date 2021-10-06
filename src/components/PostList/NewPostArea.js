@@ -16,7 +16,7 @@ function NewPostArea({ onPost, forTimeline, whoseTimeline }) {
     onPost();
   }
 
-  const placeholder = (forTimeline && whoseTimeline != "Alex Doe")
+  const placeholder = (forTimeline && whoseTimeline != "alex_doe")
     ? `Write something to ${this.props.name.split(" ")[0]}`
     : "What's on your mind, Alex?";
 
