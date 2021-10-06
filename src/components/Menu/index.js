@@ -12,8 +12,8 @@ export const menuLabelTypes = {
   CURRENT: "current",
 
   // Various icon options
-  VERTICAl_DOTS: "vertical_dots",
-  HORIZONTAL_DOTS: "horizontal_dots",
+  VERTICAl_DOTS: "vertical-dots",
+  HORIZONTAL_DOTS: "horizontal-dots",
   GEAR: "gear",
 }
 
@@ -29,7 +29,9 @@ function Menu({ title, labelType, openUpwards, options, seeMoreOptions, seeAllOp
     return options.map((option, index) =>
       <MenuButton key={index} id={option.id} text={option.text} subtext={option.subtext}
         onClick={id => {
-          option.onClick(id);
+          if (option.onClick) {
+            option.onClick(id);
+          }
           setOpen(false);
         }} />);
   }
@@ -57,7 +59,7 @@ function Menu({ title, labelType, openUpwards, options, seeMoreOptions, seeAllOp
     ? <Button type="cancel" onClick={() => setOpen(true)} className="menu-current-button">
       {currentOption() + " ▼"}
     </Button>
-    : <Button onClick={this.showMenu} >
+    : <Button onClick={() => setOpen(true)} >
       <span className={"menu-icon" + ' ' + (labelType || menuLabelTypes.VERTICAl_DOTS)}></span>
     </Button>;
 

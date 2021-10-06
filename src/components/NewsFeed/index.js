@@ -19,7 +19,7 @@ function NewsFeed() {
       <ul id='left-navigation'>
         <li>
           <img className='profile-pic' src={alex_profile_img} />
-          <ProfileLink name='Alex Doe' fromNewsFeed={true} onClick={registerClick} />
+          <ProfileLink name='alex_doe' fromNewsFeed={true} onClick={registerClick} />
         </li>
 
         <li>

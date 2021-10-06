@@ -24,3 +24,17 @@
   padding: 0;
   font-size: 11px;
 }
+
+.menu-icon.vertical-dots:after {
+  content: '\2807';
+  color: gray;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.menu-icon.horizontal-dots:after {
+  content: '\2026';
+  color: gray;
+  font-weight: bold;
+  font-size: 20px;
+}

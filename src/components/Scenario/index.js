@@ -9,7 +9,7 @@ function Scenario() {
     <div className="Scenario">
       <h3 className="scenario-head">What is my Task ?</h3>
 
-      <p className="scenario-text">You are <strong><ProfileLink name="Alex Doe" /></strong> from Fresno. California and regularly use FriendBook for professional and leisure activities. You are looking for a job and have been advised by your mentor that employers monitor and scrutinize applicants’ FriendBook profile before making decisions on whether to hire them or not. They have provided you with the following <strong> list of items</strong> to consider about your profile as you go through the application process. </p>
+      <p className="scenario-text">You are <strong><ProfileLink name="alex_doe" /></strong> from Fresno. California and regularly use FriendBook for professional and leisure activities. You are looking for a job and have been advised by your mentor that employers monitor and scrutinize applicants’ FriendBook profile before making decisions on whether to hire them or not. They have provided you with the following <strong> list of items</strong> to consider about your profile as you go through the application process. </p>
 
       <p className="scenario-task">Given that you have an upcoming interview, go through your profile and see if you are okay with what&apos;s on it.</p>
 

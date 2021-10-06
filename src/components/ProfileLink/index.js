@@ -1,16 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { nameToLink } from '../../utils/name_links'
+import { getFullName } from '../../utils/profile';
 
 function ProfileLink({ name, fromNewsFeed, onClick }) {
   return (
     <Link to={{
-      pathname: `/profile/${nameToLink(name)}`,
+      pathname: `/profile/${name}`,
       state: { fromNewsFeed }
     }} onClick={onClick !== undefined ? onClick : null}>
-      <span className="ProfileLink" id="left-navigation-profile-name">{name}</span>
+      <span className="ProfileLink" id="left-navigation-profile-name">{getFullName(name)}</span>
     </Link>
   );
 }
