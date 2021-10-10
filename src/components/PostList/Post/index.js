@@ -16,7 +16,7 @@ import like_icon from '../../../assets/icons/like_icon.png';
 import comment_icon from '../../../assets/icons/comment_icon.png';
 import share_icon from '../../../assets/icons/share_icon.png';
 
-function Post({ name, time, audience, photo, liked, content }) {
+function Post({ name, time, audience, photo, liked, comments, content }) {
   // TODO: Tweak wordings (e.g. "Hide from timeline")
   // TODO: Add onClick functions
   // TODO: Only show actions that make sense for the post
@@ -51,7 +51,7 @@ function Post({ name, time, audience, photo, liked, content }) {
       </div>
       <hr />
 
-      <Comment name="alex_doe">test</Comment>
+      {comments && comments.map((comment, i) => <Comment key={i} {...comment} />)}
       <NewCommentArea type="post" />
     </div>
   );
@@ -63,6 +63,7 @@ Post.propTypes = {
   audience: PropTypes.string,
   photo: PropTypes.string,
   liked: PropTypes.bool,
+  comments: PropTypes.arrayOf(PropTypes.object),
   content: PropTypes.string
 };
 

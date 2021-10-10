@@ -9,6 +9,7 @@ import NewPostArea from './NewPostArea';
 import Post from './Post';
 
 function PostList({ forTimeline, whoseTimeline }) {
+  // TODO: Either acknowledge for_user, or make different lists for different users
   const [posts, setPosts] = useLocalStorage("posts", defaultPosts);
 
   function onPost(content, photo, audience) {

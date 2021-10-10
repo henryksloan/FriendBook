@@ -6,7 +6,7 @@ import ProfileLink from '../../ProfileLink';
 import Button from '../../Button';
 import NewCommentArea from './NewCommentArea';
 
-function Comment({ name, liked, children }) {
+function Comment({ name, liked, content }) {
   const [renderReplyArea, setRenderReplyArea] = useState(false);
 
   // TODO: Implement button actions
@@ -15,7 +15,7 @@ function Comment({ name, liked, children }) {
       <img className='comment-profile-pic' src={getProfilePic(name)} />
       <div className='comment-content'>
         <ProfileLink name={name} />
-        <p>{' '}{replaceNamesWithLinks(children)}</p>
+        <p>{' '}{replaceNamesWithLinks(content)}</p>
         <div className='comment-actions'>
           <Button onClick={() => { } /*this.onClickLike*/}>{liked ? "Unlike" : "Like"}</Button>
           <Button onClick={() => setRenderReplyArea(true)}>Reply</Button>
@@ -30,7 +30,7 @@ function Comment({ name, liked, children }) {
 Comment.propTypes = {
   name: PropTypes.string.isRequired,
   liked: PropTypes.bool,
-  children: PropTypes.node
+  content: PropTypes.string
 };
 
 export default Comment;
