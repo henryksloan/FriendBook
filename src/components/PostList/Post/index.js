@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { getFullName, getProfilePic } from '../../../utils/profile'
@@ -16,7 +16,29 @@ import like_icon from '../../../assets/icons/like_icon.png';
 import comment_icon from '../../../assets/icons/comment_icon.png';
 import share_icon from '../../../assets/icons/share_icon.png';
 
-function Post({ name, time, audience, photo, liked, comments, content }) {
+function Post({ name, time, audience, photo, liked, comments, content, onUpdate, onDelete }) {
+  const inputRef = useRef(null);
+
+  function getPostObject() {
+    return { name, time, audience, photo, liked, comments, content };
+  }
+
+  function updatePost(updateFunc) {
+    var postObj = getPostObject();
+    if (updateFunc) {
+      updateFunc(postObj);
+    }
+    if (onUpdate) {
+      onUpdate(postObj);
+    }
+  }
+
+  function deletePost() {
+    if (onDelete) {
+      onDelete();
+    }
+  }
+
   // TODO: Tweak wordings (e.g. "Hide from timeline")
   // TODO: Add onClick functions
   // TODO: Only show actions that make sense for the post
@@ -24,7 +46,7 @@ function Post({ name, time, audience, photo, liked, comments, content }) {
     { id: 'hide', text: 'Hide post' },
     { id: 'remove_tag', text: 'Remove tag' },
     { id: 'unfollow', text: `Unfollow ${getFullName(name)}` },
-    { id: 'delete', text: 'Delete' }
+    { id: 'delete', text: 'Delete', onClick: deletePost }
   ];
 
   return (
@@ -45,14 +67,16 @@ function Post({ name, time, audience, photo, liked, comments, content }) {
 
       <hr />
       <div className="post-actions">
-        <Button><img src={like_icon} /> {liked ? "Unlike" : "Like"}</Button>
-        <Button><img src={comment_icon} /> Comment</Button>
+        <Button onClick={() => updatePost(post => post.liked = !post.liked)}>
+          {" "}<img src={like_icon} /> {liked ? "Unlike" : "Like"}
+        </Button>
+        <Button onClick={() => inputRef && inputRef.current.focus()}><img src={comment_icon} /> Comment</Button>
         <Button><img src={share_icon} /> Share</Button>
       </div>
       <hr />
 
       {comments && comments.map((comment, i) => <Comment key={i} {...comment} />)}
-      <NewCommentArea type="post" />
+      <NewCommentArea type="post" inputRef={inputRef} />
     </div>
   );
 }
@@ -64,7 +88,9 @@ Post.propTypes = {
   photo: PropTypes.string,
   liked: PropTypes.bool,
   comments: PropTypes.arrayOf(PropTypes.object),
-  content: PropTypes.string
+  content: PropTypes.string,
+  onUpdate: PropTypes.func,
+  onDelete: PropTypes.func,
 };
 
 export default Post;

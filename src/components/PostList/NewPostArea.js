@@ -14,8 +14,10 @@ function NewPostArea({ onPost, forTimeline, whoseTimeline }) {
   function onClickPost() {
     // TODO: Get audience from AudienceMenu
     // TODO: In general, use audience id's like "public", then posts can use a utility to make them pretty like "Public"
-    const audience = "public";
-    onPost(postText, photo, audience);
+    if (postText.length > 0) {
+      const audience = "public";
+      onPost(postText, photo, audience);
+    }
   }
 
   const placeholder = (forTimeline && whoseTimeline != "alex_doe")

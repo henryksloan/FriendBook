@@ -27,11 +27,20 @@ function PostList({ forTimeline, whoseTimeline }) {
     setPosts(newPosts);
   }
 
+  function onUpdate(index, newPost) {
+    var postsCopy = [...posts];
+    postsCopy[index] = newPost;
+    setPosts(postsCopy);
+  }
+
   return (
     <div className="PostList">
       <NewPostArea onPost={onPost} forTimeline={forTimeline} whoseTimeline={whoseTimeline} />
-      {posts.map((post, i) => <Post key={i} {...post} />)}
-      <Post name="alex_doe" time="Just now" audience="Public" content="test" />
+      {posts.map((post, i) =>
+        <Post key={posts.length - i}
+          onUpdate={newPost => onUpdate(i, newPost)}
+          onDelete={() => setPosts(posts.slice(0, i).concat(posts.slice(i + 1)))}
+          {...post} />)}
     </div>
   );
 }

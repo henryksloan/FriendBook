@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function NewCommentArea({ type }) {
+function NewCommentArea({ type, inputRef }) {
   const [text, setText] = useState("");
 
   function onKeyPress(e) {
@@ -16,12 +16,16 @@ function NewCommentArea({ type }) {
     <input className="NewCommentArea" type='text' placeholder={placeholder}
       rows='1' cols='65' onKeyPress={onKeyPress}
       onChange={(e) => setText(e.target.value)} value={text}
-      autoComplete='off' />
+      autoComplete='off' ref={inputRef} />
   );
 }
 
 NewCommentArea.propTypes = {
-  type: PropTypes.string
+  type: PropTypes.string,
+  inputRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any })
+  ])
 };
 
 export default NewCommentArea;
