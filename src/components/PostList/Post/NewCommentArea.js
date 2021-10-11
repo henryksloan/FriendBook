@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function NewCommentArea({ type, inputRef }) {
+function NewCommentArea({ type, inputRef, onSubmit }) {
   const [text, setText] = useState("");
 
   function onKeyPress(e) {
     if (e.key === 'Enter' && text !== '') {
-      // TODO
-      // onSubmit();
+      const comment = {
+        name: "alex_doe",
+        content: text,
+      };
+      if (onSubmit) {
+        onSubmit(comment);
+      }
+      setText("");
     }
   }
 
@@ -25,7 +31,8 @@ NewCommentArea.propTypes = {
   inputRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.any })
-  ])
+  ]),
+  onSubmit: PropTypes.func
 };
 
 export default NewCommentArea;

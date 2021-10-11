@@ -6,10 +6,22 @@ import ProfileLink from '../../ProfileLink';
 import Button from '../../Button';
 import NewCommentArea from './NewCommentArea';
 
-function Comment({ name, liked, content }) {
+function Comment({ name, liked, content, onUpdate, onDelete }) {
   const [renderReplyArea, setRenderReplyArea] = useState(false);
 
-  // TODO: Implement button actions
+  function onReply(comment) {
+    setRenderReplyArea(false);
+    if (onReply) {
+      onReply(comment);
+    }
+  }
+
+  function onClickLike() {
+    if (onUpdate) {
+      onUpdate(comment => comment.liked = !comment.liked);
+    }
+  }
+
   return (
     <div className="Comment">
       <img className='comment-profile-pic' src={getProfilePic(name)} />
@@ -17,12 +29,13 @@ function Comment({ name, liked, content }) {
         <ProfileLink name={name} />
         <p>{' '}{replaceNamesWithLinks(content)}</p>
         <div className='comment-actions'>
-          <Button onClick={() => { } /*this.onClickLike*/}>{liked ? "Unlike" : "Like"}</Button>
+          <Button onClick={onClickLike}>{liked ? "Unlike" : "Like"}</Button>
           <Button onClick={() => setRenderReplyArea(true)}>Reply</Button>
-          {(name == 'alex_doe') && <Button onClick={() => { } /*this.onClickDelete*/}>Delete</Button>}
+          {(name == 'alex_doe') && <Button onClick={() => onDelete && onDelete()}>Delete</Button>}
         </div>
       </div>
-      {renderReplyArea && <NewCommentArea type="reply" />}
+      {renderReplyArea && <NewCommentArea type="reply"
+        onSubmit={onReply} />}
     </div>
   );
 }
@@ -30,7 +43,9 @@ function Comment({ name, liked, content }) {
 Comment.propTypes = {
   name: PropTypes.string.isRequired,
   liked: PropTypes.bool,
-  content: PropTypes.string
+  content: PropTypes.string,
+  onUpdate: PropTypes.func,
+  onDelete: PropTypes.func
 };
 
 export default Comment;

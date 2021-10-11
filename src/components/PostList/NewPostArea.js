@@ -26,6 +26,7 @@ function NewPostArea({ onPost, forTimeline, whoseTimeline }) {
 
   // TODO: Add custom friends lists as audience options
   // TODO: Consider whether some audience options should be under "More" or "See all" (highlight accordingly)
+  // TODO: Uploading
   return (
     <div className="NewPostArea">
       <div id='new-post-area-content'>

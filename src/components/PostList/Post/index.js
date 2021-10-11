@@ -75,8 +75,14 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
       </div>
       <hr />
 
-      {comments && comments.map((comment, i) => <Comment key={i} {...comment} />)}
-      <NewCommentArea type="post" inputRef={inputRef} />
+      {comments && comments.map((comment, i) =>
+        <Comment key={i}
+          onUpdate={updateFunc => updatePost(post => updateFunc(post.comments[i]))}
+          onReply={comment => updatePost(post => post.comments.push(comment))}
+          onDelete={() => updatePost(post => post.comments = comments.slice(0, i).concat(comments.slice(i + 1)))}
+          {...comment} />)}
+      <NewCommentArea type="post" inputRef={inputRef}
+        onSubmit={comment => updatePost(post => post.comments.push(comment))} />
     </div>
   );
 }
