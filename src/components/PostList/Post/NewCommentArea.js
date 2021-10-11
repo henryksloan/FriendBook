@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function NewCommentArea({ type, inputRef, onSubmit }) {
+import { getFullName } from '../../../utils/profile';
+
+function NewCommentArea({ replyTo, inputRef, onSubmit }) {
   const [text, setText] = useState("");
 
   function onKeyPress(e) {
     if (e.key === 'Enter' && text !== '') {
+      const replyString = replyTo ? (getFullName(replyTo) + ' ') : '';
       const comment = {
         name: "alex_doe",
-        content: text,
+        content: replyString + text,
       };
       if (onSubmit) {
         onSubmit(comment);
@@ -17,7 +20,7 @@ function NewCommentArea({ type, inputRef, onSubmit }) {
     }
   }
 
-  const placeholder = (type == 'reply') ? 'Write a reply...' : 'Write a comment...';
+  const placeholder = (replyTo) ? 'Write a reply...' : 'Write a comment...';
   return (
     <input className="NewCommentArea" type='text' placeholder={placeholder}
       rows='1' cols='65' onKeyPress={onKeyPress}
@@ -27,7 +30,7 @@ function NewCommentArea({ type, inputRef, onSubmit }) {
 }
 
 NewCommentArea.propTypes = {
-  type: PropTypes.string,
+  replyTo: PropTypes.string,
   inputRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.any })

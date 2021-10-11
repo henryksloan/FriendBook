@@ -6,10 +6,10 @@ import ProfileLink from '../../ProfileLink';
 import Button from '../../Button';
 import NewCommentArea from './NewCommentArea';
 
-function Comment({ name, liked, content, onUpdate, onDelete }) {
+function Comment({ name, liked, content, onUpdate, onReply, onDelete }) {
   const [renderReplyArea, setRenderReplyArea] = useState(false);
 
-  function onReply(comment) {
+  function onSubmitReply(comment) {
     setRenderReplyArea(false);
     if (onReply) {
       onReply(comment);
@@ -34,8 +34,8 @@ function Comment({ name, liked, content, onUpdate, onDelete }) {
           {(name == 'alex_doe') && <Button onClick={() => onDelete && onDelete()}>Delete</Button>}
         </div>
       </div>
-      {renderReplyArea && <NewCommentArea type="reply"
-        onSubmit={onReply} />}
+      {renderReplyArea && <NewCommentArea replyTo={name}
+        onSubmit={onSubmitReply} />}
     </div>
   );
 }
@@ -45,6 +45,7 @@ Comment.propTypes = {
   liked: PropTypes.bool,
   content: PropTypes.string,
   onUpdate: PropTypes.func,
+  onReply: PropTypes.func,
   onDelete: PropTypes.func
 };
 
