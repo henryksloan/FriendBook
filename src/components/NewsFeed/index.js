@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 import { getProfilePic } from '../../utils/profile';
+import { cloudFunctionTest } from '../../api/test';
 
 import './index.css';
 import PostList from '../PostList'
@@ -13,6 +14,7 @@ function NewsFeed() {
   // TODO
   function registerClick() {
     // registerEvent("Clicked on Alex Doe'\s profile link", "to visit their profile page", " From NewsFeed-LeftSide");
+    cloudFunctionTest();
   }
 
   return (
