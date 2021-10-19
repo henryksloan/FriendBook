@@ -49,6 +49,7 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
     { id: 'delete', text: 'Delete', onClick: deletePost }
   ];
 
+  // TODO: Implement sharing
   return (
     <div className="Post">
       <div className="post-header">
