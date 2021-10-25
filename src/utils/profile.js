@@ -1,3 +1,8 @@
+import React from 'react';
+import ProfileLink from '../components/ProfileLink';
+
+const mainUser = 'alex_doe';
+
 const profilePics = {
   'alex_doe': process.env.PUBLIC_URL + '/assets/users/alex_profile_img.jpg',
   'bill_gates': process.env.PUBLIC_URL + '/assets/users/bill_profile_img.jpg',
@@ -38,6 +43,12 @@ const fullNames = {
 
 export const allFullNames = Object.values(fullNames);
 
+const fullNameRegex = RegExp(allFullNames
+  .map(str => `(${str})`).join('|'), 'gi');
+const fullNameExcludingUserRegex = RegExp(allFullNames
+  .filter(str => str != mainUser)
+  .map(str => `(${str})`).join('|'), 'gi');
+
 export function getProfilePic(name) {
   return profilePics[name] || defaultProfilePic;
 }
@@ -46,12 +57,26 @@ export function getFullName(name) {
   return fullNames[name];
 }
 
+export function getIdFromFullName(fullName) {
+  return Object.keys(fullNames).find(key => fullNames[key] === fullName);
+}
+
 export function replaceNamesWithLinks(text, excludeUser = false) {
-  // TODO: Implement
-  if (excludeUser) {
-    console.log(allFullNames);
-    return text;
-  } else {
-    return text;
+  const regex = excludeUser ? fullNameRegex : fullNameExcludingUserRegex;
+  const matches = [...text.matchAll(regex)];
+
+  let output = [];
+  let startIndex = 0;
+  for (const [index, match] of matches.entries()) {
+    const matchStart = match.index;
+    const matchEnd = match.index + match[0].length;
+
+    output.push(<span key={`${index}_before`}>{text.substring(startIndex, matchStart)}</span>)
+    output.push(<ProfileLink name={getIdFromFullName(match[0])} key={`${index}_link`} />);
+
+    startIndex = matchEnd;
   }
+  output.push(<span key={'after'}>{text.substring(startIndex)}</span>)
+
+  return <span>{output}</span>;
 }

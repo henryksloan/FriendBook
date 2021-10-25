@@ -39,17 +39,19 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
     }
   }
 
-  // TODO: Tweak wordings (e.g. "Hide from timeline")
-  // TODO: Add onClick functions
-  // TODO: Only show actions that make sense for the post
-  const menuOptions = [
-    { id: 'hide', text: 'Hide post' },
-    { id: 'remove_tag', text: 'Remove tag' },
-    { id: 'unfollow', text: `Unfollow ${getFullName(name)}` },
-    { id: 'delete', text: 'Delete', onClick: deletePost }
-  ];
+  const hideOption = { id: 'hide', text: 'Hide post' }; // TODO: Implement hiding
+  const removeTagOption = { id: 'remove_tag', text: 'Remove tag' }; // TODO: Implement removing tag
+  const unfollowOption = { id: 'unfollow', text: `Unfollow ${getFullName(name)}` };
+  const deleteOption = { id: 'delete', text: 'Delete', onClick: deletePost };
+
+  const isUser = (name == 'alex_doe');
+  const menuOptions = isUser ? [hideOption, deleteOption] : [hideOption, unfollowOption];
+  if (!isUser && content.includes(getFullName('alex_doe'))) {
+    menuOptions.splice(1, 0, removeTagOption);
+  }
 
   // TODO: Implement sharing
+  // TODO: Implement target_friend
   return (
     <div className="Post">
       <div className="post-header">

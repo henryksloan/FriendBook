@@ -28,9 +28,9 @@
   line-height: 1.6;
 }
 
-.Post .ProfileLink {
+.post-header-text .ProfileLink {
   display: block;
-color:#365899;
+  color:#365899;
 }
 
 .post-time {
