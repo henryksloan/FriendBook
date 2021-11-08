@@ -15,17 +15,17 @@ function Scenario() {
 
       <ol className="scenario-list">
         <li className="scenario-list-item tooltip">
-          <label>Deleting the post</label>
-          <span className="tooltiptext"> It’s not uncommon for people to delete posts that they think would reflect poorly on them.</span>
+          <label>Delete the post</label>
+          <span className="tooltiptext"> It’s not uncommon for people to delete posts that they reflect poorly on them.</span>
         </li>
 
         <li className="scenario-list-item tooltip">
-          <label>Change your post’s audeince </label>
+          <label>Change the post’s audeince </label>
           <span className="tooltiptext"> It’s not uncommon for people to change the audience of their post to control who can view/access their posts.</span>
         </li>
 
         <li className="scenario-list-item tooltip">
-          <label>Edit your post entirely</label>
+          <label>Edit the post </label>
           <span className="tooltiptext">It’s not uncommon for people to edit their posts.</span>
 
         </li>
