@@ -1,7 +1,11 @@
 body {
+  padding: inherit;
+  width: 100%;
+  overflow: auto;
   margin: 0;
   font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
   font-size: 14px;
+  background-color: #e9ebee;
 }
 
 a {
