@@ -1,2 +1,2 @@
-\i suggestions_table.sql
-\i user_actions_table.sql
+\i user_sessions_table.sql
+\i actions_table.sql
