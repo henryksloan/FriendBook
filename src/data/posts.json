@@ -24,7 +24,7 @@
     
     {
     "name": "alex_doe",
-    "photo": "/assets/photos/fly-friendly.jpeg",
+    "photo": "../public/assets/personal_photos/fly-friendly.jpeg",
     "content": "Going to Fly the friendly skies for my upcoming vacation traveling to New York from California. Super excited! ",
     "comments": [],
     "audience": "public",
@@ -45,7 +45,7 @@
     
     {
     "name": "alex_doe",
-    "photo": "/assets/photos/home.jpeg",
+    "photo": "../public/assets/personal_photos/home.jpeg",
     "content": "I am amazed  week after week by the amount of crap I manage to accumulate in and around my apartment!",
     "comments": [],
     "audience": "public",
@@ -74,7 +74,7 @@
     
     {
     "name": "alex_doe",
-    "photo": "/assets/photos/cannabis.png",
+    "photo": "../public/assets/personal_photos/cannabis.png",
     "content": "Days off are so fun!",
     "comments": [],
     "audience": "public",
@@ -108,7 +108,7 @@
     
      {
     "name": "alex_doe",
-    "photo": "/assets/photos/dog_bite.jpeg",
+    "photo": "../public/assets/personal_photos/dog_bite.jpeg",
     "content": "My dog bit me. It hurts so bad!",
     "comments": [],
     "audience": "public",

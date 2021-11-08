@@ -23,4 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 #Src files
-/data/photos_old.json
+src/data/photos_old.json
