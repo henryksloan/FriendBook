@@ -1,120 +1,102 @@
 [
    {
-      "name":"alex_doe",
-      "content":"I work with a bunch of fucking idiots.",
-      "comments":[
-         
-      ],
-      "audience":"public",
-      "time":"3 December",
-      "privacy_sensitivity":"high",
-      "post_id":"1"
+      "name": "alex_doe",
+      "content": "I work with a bunch of fucking idiots.",
+      "comments": [],
+      "audience": "public",
+      "time": "3 December",
+      "privacy_sensitivity": "high",
+      "post_id": "1"
    },
    {
-      "name":"alex_doe",
-      "content":"Fuck california man the traffics so terrible, i spent half my trip in the car.",
-      "comments":[
-         
-      ],
-      "audience":"public",
-      "time":"1 December",
-      "privacy_sensitivity":"mid",
-      "post-id":"2"
+      "name": "alex_doe",
+      "content": "Fuck california man the traffics so terrible, i spent half my trip in the car.",
+      "comments": [],
+      "audience": "public",
+      "time": "1 December",
+      "privacy_sensitivity": "mid",
+      "post-id": "2"
    },
    {
-      "name":"alex_doe",
-      "photo":"../public/assets/personal_photos/fly-friendly.jpeg",
-      "content":"Going to Fly the friendly skies for my upcoming vacation traveling to New York from California. Super excited! ",
-      "comments":[
-         
-      ],
-      "audience":"public",
-      "time":"1 December",
-      "privacy_sensitivity":"low",
-      "post_id":"3"
+      "name": "alex_doe",
+      "photo": "/assets/personal_photos/fly-friendly.jpeg",
+      "content": "Going to Fly the friendly skies for my upcoming vacation traveling to New York from California. Super excited! ",
+      "comments": [],
+      "audience": "public",
+      "time": "1 December",
+      "privacy_sensitivity": "low",
+      "post_id": "3"
    },
    {
-      "name":"alex_doe",
-      "content":"I just wanna skip out on work i'm too tired for this shit today.",
-      "comments":[
-         
-      ],
-      "audience":"public",
-      "time":"1 December",
-      "privacy_sensitivity":"high",
-      "post_id":"4"
+      "name": "alex_doe",
+      "content": "I just wanna skip out on work i'm too tired for this shit today.",
+      "comments": [],
+      "audience": "public",
+      "time": "1 December",
+      "privacy_sensitivity": "high",
+      "post_id": "4"
    },
    {
-      "name":"alex_doe",
-      "photo":"../public/assets/personal_photos/home.jpeg",
-      "content":"I am amazed  week after week by the amount of crap I manage to accumulate in and around my apartment!",
-      "comments":[
-         
-      ],
-      "audience":"public",
-      "time":"1 December",
-      "privacy_sensitivity":"mid",
-      "post_id":"5"
+      "name": "alex_doe",
+      "photo": "/assets/personal_photos/home.jpeg",
+      "content": "I am amazed  week after week by the amount of crap I manage to accumulate in and around my apartment!",
+      "comments": [],
+      "audience": "public",
+      "time": "1 December",
+      "privacy_sensitivity": "mid",
+      "post_id": "5"
    },
    {
-      "name":"alex_doe",
-      "content":"Happy birthday to my Mom. Enjoy your special day and thanks for always putting up with me. I love you.✨🖤",
-      "comments":[
+      "name": "alex_doe",
+      "content": "Happy birthday to my Mom. Enjoy your special day and thanks for always putting up with me. I love you.✨🖤",
+      "comments": [
          {
-            "name":"jack_scout",
-            "content":"Happy Birthday, to her",
-            "liked":true
+            "name": "jack_scout",
+            "content": "Happy Birthday, to her",
+            "liked": true
          }
       ],
-      "audience":"public",
-      "time":"1 December",
-      "privacy_sensitivity":"low",
-      "postt_id":"6"
+      "audience": "public",
+      "time": "1 December",
+      "privacy_sensitivity": "low",
+      "postt_id": "6"
    },
    {
-      "name":"alex_doe",
-      "photo":"../public/assets/personal_photos/cannabis.png",
-      "content":"Days off are so fun!",
-      "comments":[
-         
-      ],
-      "audience":"public",
-      "time":"1 December",
-      "privacy_sensitivity":"high",
-      "post_id":"7"
+      "name": "alex_doe",
+      "photo": "/assets/personal_photos/cannabis.jpg",
+      "content": "Days off are so fun!",
+      "comments": [],
+      "audience": "public",
+      "time": "1 December",
+      "privacy_sensitivity": "high",
+      "post_id": "7"
    },
    {
-      "name":"alex_doe",
-      "content":"If you don't like the way i do something shut the hell up and do it ur self and if u don't understand me leave me alone!",
-      "comments":[
-         
-      ],
-      "audience":"public",
-      "time":"1 December",
-      "privacy_sensitivity":"mid",
-      "post_id":"8"
+      "name": "alex_doe",
+      "content": "If you don't like the way i do something shut the hell up and do it ur self and if u don't understand me leave me alone!",
+      "comments": [],
+      "audience": "public",
+      "time": "1 December",
+      "privacy_sensitivity": "mid",
+      "post_id": "8"
    },
    {
-      "name":"alex_doe",
-      "content":"My managers are the best for the get-to-togeether party they threw last weekend!😇🤔",
-      "comments":[
-         
-      ],
-      "audience":"public",
-      "time":"1 December",
-      "privacy_sensitivity":"low",
-      "post_id":"9"
+      "name": "alex_doe",
+      "content": "My managers are the best for the get-to-togeether party they threw last weekend!😇🤔",
+      "comments": [],
+      "audience": "public",
+      "time": "1 December",
+      "privacy_sensitivity": "low",
+      "post_id": "9"
    },
    {
-      "name":"alex_doe",
-      "photo":"../public/assets/personal_photos/dog_bite.jpeg",
-      "content":"My dog bit me. It hurts so bad!",
-      "comments":[
-         
-      ],
-      "audience":"public",
-      "time":"1 December",
-      "privacy_sensitivity":"high",
-      "post_id":"10"
+      "name": "alex_doe",
+      "photo": "/assets/personal_photos/dog_bite.jpeg",
+      "content": "My dog bit me. It hurts so bad!",
+      "comments": [],
+      "audience": "public",
+      "time": "1 December",
+      "privacy_sensitivity": "high",
+      "post_id": "10"
    }
 ]
