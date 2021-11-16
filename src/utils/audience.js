@@ -1,3 +1,10 @@
+import public_icon from '../assets/icons/audience/public.png';
+import friends_icon from '../assets/icons/audience/friends.png';
+import friends_except_icon from '../assets/icons/audience/friends_except.png';
+import specific_friends_icon from '../assets/icons/audience/specific_friends.png';
+import only_me_icon from '../assets/icons/audience/only_me.png';
+import custom_icon from '../assets/icons/audience/custom.png';
+
 export function audienceText(audience) {
   switch (audience) {
     case "public":
@@ -16,6 +23,23 @@ export function audienceText(audience) {
       return "Family"
     default:
       return audience || " ";
+  }
+}
+
+export function audienceIcon(audience) {
+  switch (audience) {
+    case "public":
+      return public_icon;
+    case "friends":
+      return friends_icon;
+    case "friends_except":
+      return friends_except_icon;
+    case "only_me":
+      return only_me_icon;
+    case "specific_friends":
+      return specific_friends_icon;
+    case "custom":
+      return custom_icon;
   }
 }
 
