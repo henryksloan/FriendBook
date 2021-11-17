@@ -33,10 +33,11 @@ function PostList({ forTimeline, whoseTimeline }) {
     setPosts(postsCopy);
   }
 
+  let filterPosts = post => !forTimeline || post.name == whoseTimeline;
   return (
     <div className="PostList">
       <NewPostArea onPost={onPost} forTimeline={forTimeline} whoseTimeline={whoseTimeline} />
-      {posts.map((post, i) =>
+      {posts.filter(filterPosts).map((post, i) =>
         <Post key={posts.length - i}
           onUpdate={newPost => onUpdate(i, newPost)}
           onDelete={() => setPosts(posts.slice(0, i).concat(posts.slice(i + 1)))}

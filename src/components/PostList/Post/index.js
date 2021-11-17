@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { getFullName, getProfilePic } from '../../../utils/profile'
-import { audienceText } from '../../../utils/audience'
+import { audienceIcon } from '../../../utils/audience'
 
 import './index.css';
 import ProfileLink from '../../ProfileLink';
@@ -60,7 +60,7 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
           <ProfileLink name={name} />
           <p className="post-time">{time}</p>
           {" · "}
-          <p style={{ display: "inline" }}>{audienceText(audience)}</p>
+          <img className="audience-icon" src={audienceIcon(audience)} />
         </div>
         <Menu labelType={menuLabelTypes.HORIZONTAL_DOTS} options={menuOptions} />
       </div>

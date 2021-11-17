@@ -8,6 +8,8 @@
   margin-bottom: 12px;
   padding: 12px 12px 0;
   line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .post-header {
@@ -90,4 +92,9 @@
   margin-bottom: 8px;
   font: inherit;
   padding: 3px 0px 5px 9px;
+}
+
+.audience-icon {
+  width: 12px;
+  height: 12px;
 }

@@ -6,26 +6,34 @@
 .profile-header {
   width: 851px;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .header-profile-pic {
   height: 168px;
   width: 168px;
-  margin-top: 60px;
-  margin-left: 20px;
+  margin-top: 25px;
   box-shadow: none;
   border: 4px solid #fff;
   z-index: 100;
   border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-pic-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
  
 .profile-header h2 {
   color: #fff;
-  margin-top: 167.43px;
-  margin-left: 14px;
   z-index: 100;
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  margin: 10px 0;
  }
 
 .cover-photo-container {
@@ -37,4 +45,29 @@
   background-color: #000;
   width: 100%;
   height: 100%;
+}
+
+.profile-top-bar {
+  height: 43px;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.profile-top-bar-buttons {
+  line-height: 3.05;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+}
+
+.profile-top-bar-buttons li {
+  list-style-type: none;
+  border: 1px solid #e9eaed;
+  float: left;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 17px;
+  white-space: nowrap;
 }
