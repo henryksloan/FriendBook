@@ -1,12 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { getFullName, getProfilePic } from '../../../utils/profile'
+import { /* getFullName, */ getProfilePic } from '../../../utils/profile'
 import { audienceIcon } from '../../../utils/audience'
 
 import './index.css';
 import ProfileLink from '../../ProfileLink';
 import PostText from './PostText';
+import Popup from '../../Popup';
 import Menu, { menuLabelTypes } from '../../Menu';
 import Button from '../../Button';
 import Comment from './Comment';
@@ -18,6 +19,7 @@ import share_icon from '../../../assets/icons/share_icon.png';
 
 function Post({ name, time, audience, photo, liked, comments, content, onUpdate, onDelete }) {
   const inputRef = useRef(null);
+  const [renderChangeAudiencePopup, setRenderChangeAudiencePopup] = useState(false);
 
   function getPostObject() {
     return { name, time, audience, photo, liked, comments, content };
@@ -39,16 +41,16 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
     }
   }
 
-  const hideOption = { id: 'hide', text: 'Hide post' }; // TODO: Implement hiding
-  const removeTagOption = { id: 'remove_tag', text: 'Remove tag' }; // TODO: Implement removing tag
-  const unfollowOption = { id: 'unfollow', text: `Unfollow ${getFullName(name)}` };
-  const deleteOption = { id: 'delete', text: 'Delete', onClick: deletePost };
+  const editOption = { id: 'edit', text: 'Edit post' }; // TODO: Implement editing
+  const editAudienceOption = { id: 'edit_audience', text: 'Edit audience', onClick: () => { setRenderChangeAudiencePopup(true); } };
+  const deleteOption = { id: 'delete', text: 'Move to trash', onClick: deletePost };
 
-  const isUser = (name == 'alex_doe');
-  const menuOptions = isUser ? [hideOption, deleteOption] : [hideOption, unfollowOption];
-  if (!isUser && content.includes(getFullName('alex_doe'))) {
-    menuOptions.splice(1, 0, removeTagOption);
-  }
+  // const isUser = (name == 'alex_doe');
+  // const menuOptions = isUser ? [hideOption, deleteOption] : [hideOption, unfollowOption];
+  const menuOptions = [editOption, editAudienceOption, deleteOption];
+  // if (!isUser && content.includes(getFullName('alex_doe'))) {
+  //   menuOptions.splice(1, 0, removeTagOption);
+  // }
 
   // TODO: Implement sharing
   // TODO: Implement target_friend
@@ -60,7 +62,7 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
           <ProfileLink name={name} />
           <p className="post-time">{time}</p>
           {" · "}
-          <img className="audience-icon" src={audienceIcon(audience)} />
+          <img className="audience-icon" src={audienceIcon(audience)} onClick={() => setRenderChangeAudiencePopup(true)} />
         </div>
         <Menu labelType={menuLabelTypes.HORIZONTAL_DOTS} options={menuOptions} />
       </div>
@@ -86,6 +88,11 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
           {...comment} />)}
       <NewCommentArea inputRef={inputRef}
         onSubmit={comment => updatePost(post => post.comments.push(comment))} />
+
+      {renderChangeAudiencePopup &&
+        <Popup title="Select audience" onClickClose={() => setRenderChangeAudiencePopup(false)}>
+          abc
+        </Popup>}
     </div>
   );
 }
