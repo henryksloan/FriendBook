@@ -1,0 +1,56 @@
+[
+   {
+      "post_id":"1",
+      "tone":"neutral",
+      "action":"edit_post",
+      "text":"Hey Alex, do you want to edit this post"
+   },
+   {
+      "post_id":"7",
+      "tone":"neutral",
+      "action":"change_audience",
+      "text":"Hey Alex, do you want to change the audience of this post"
+   },
+   {
+      "post_id":"10",
+      "tone":"neutral",
+      "action":"delete_post",
+      "text":"Hey Alex, do you want to delete this post"
+   },
+   {
+      "post_id":"1",
+      "tone":"passive",
+      "action":"edit_post",
+      "text":"Hey Alex, perhaps you might consider editing this post"
+   },
+   {
+      "post_id":"7",
+      "tone":"passive",
+      "action":"change_audience",
+      "text":"Hey Alex, perhaps you might consider changing the audience of this post"
+   },
+   {
+      "post_id":"10",
+      "tone":"passive",
+      "action":"delete_post",
+      "text":"Hey Alex, perhaps you might consider deleting this post"
+   },
+   {
+      "post_id":"1",
+      "tone":"assertive",
+      "action":"edit_post",
+      "text":"Hey Alex, you should absolutely edit this post"
+   },
+   {
+      "post_id":"7",
+      "tone":"assertive",
+      "action":"change_audience",
+      "text":"Hey Alex, you should absolutely change the audience of this post"
+   },
+   {
+      "post_id":"10",
+      "tone":"assertive",
+      "action":"delete_post",
+      "text":"Hey Alex, you should absolutely delete this post"
+   }
+]
