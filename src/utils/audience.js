@@ -50,11 +50,13 @@ export function audienceListItemText(option) {
     case "friends":
       return ["Friends", "Your friends on FriendBook"];
     case "friends_except":
+      // TODO: Replace with relevant list of friends (given post ID)
       return ["Friends except...", "Friends; Except (list of friends)"];
     case "only_me":
-      return ["Only me", "Only me"];
+      return ["Only me", ""];
     case "specific_friends":
-      return ["Specific friends", "Only show to some friends"];
+      // TODO: Replace with relevant list of friends (given post ID)
+      return ["Specific friends", "(list of friends"];
     case "custom":
       return ["Custom", "Include and exclude friends and lists"];
     case "everyone":

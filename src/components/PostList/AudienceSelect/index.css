@@ -1,0 +1,48 @@
+.AudienceSelect {
+  padding: 16px 0 24px 0;
+}
+
+.AudienceOption {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.audience-option-icon-container {
+  width: 76px;
+  height: 76px;
+  margin: 0 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.audience-option-icon-circle {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e4e6eb;
+  border-radius: 100px;
+}
+
+.audience-option-icon {
+  width: 25px;
+  height: 25px;
+  margin: auto;
+}
+
+.audience-option-text h3, .audience-option-text p {
+  margin: 0;
+}
+
+.audience-option-text h3 {
+  font-weight: normal;
+  font-size: 1.3em;
+  line-height: 1.0em;
+}
+
+.audience-option-text p {
+  color: #606770;
+}

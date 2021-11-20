@@ -16,6 +16,7 @@ import NewCommentArea from './NewCommentArea';
 import like_icon from '../../../assets/icons/like_icon.png';
 import comment_icon from '../../../assets/icons/comment_icon.png';
 import share_icon from '../../../assets/icons/share_icon.png';
+import AudienceSelect from '../AudienceSelect';
 
 function Post({ name, time, audience, photo, liked, comments, content, onUpdate, onDelete }) {
   const inputRef = useRef(null);
@@ -91,7 +92,7 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
 
       {renderChangeAudiencePopup &&
         <Popup title="Select audience" onClickClose={() => setRenderChangeAudiencePopup(false)}>
-          abc
+          <AudienceSelect />
         </Popup>}
     </div>
   );
