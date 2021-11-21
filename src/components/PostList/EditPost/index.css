@@ -1,0 +1,31 @@
+.EditPost {
+  padding: 16px;
+}
+
+.edit-post-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.edit-post-name {
+  font-weight: bold;
+}
+
+.EditPost textarea {
+  resize: none;
+  width: 100%;
+  font: inherit;
+  box-sizing: border-box;
+  margin-top: 12px;
+}
+
+.EditPost .edit-post-save {
+  margin-top: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 1em;
+}

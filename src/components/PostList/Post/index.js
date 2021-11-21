@@ -17,6 +17,7 @@ import like_icon from '../../../assets/icons/like_icon.png';
 import comment_icon from '../../../assets/icons/comment_icon.png';
 import share_icon from '../../../assets/icons/share_icon.png';
 import AudienceSelect from '../AudienceSelect';
+import EditPost from '../EditPost';
 
 function Post({ name, time, audience, photo, liked, comments, content, onUpdate, onDelete }) {
   const inputRef = useRef(null);
@@ -49,7 +50,7 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
     }
   }
 
-  const editOption = { id: 'edit', text: 'Edit post', onClick: () => { setRenderEditPostPopup() } }; // TODO: Implement editing
+  const editOption = { id: 'edit', text: 'Edit post', onClick: () => { setRenderEditPostPopup(true) } }; // TODO: Implement editing
   const editAudienceOption = { id: 'edit_audience', text: 'Edit audience', onClick: () => { setRenderChangeAudiencePopup(true); } };
   const deleteOption = { id: 'delete', text: 'Move to trash', onClick: () => { setRenderConfirmDeletePopup(true); } };
 
@@ -108,7 +109,7 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
 
       {renderEditPostPopup &&
         <Popup title="Edit post" onClickClose={() => setRenderEditPostPopup(false)}>
-          <AudienceSelect onSelect={selectAudience} />
+          <EditPost />
         </Popup>}
 
       {renderConfirmDeletePopup &&
