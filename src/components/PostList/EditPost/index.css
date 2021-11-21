@@ -18,6 +18,7 @@
   font: inherit;
   box-sizing: border-box;
   margin-top: 12px;
+  font-size: 1.4em;
 }
 
 .EditPost .edit-post-save {

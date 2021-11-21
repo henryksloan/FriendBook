@@ -22,3 +22,8 @@
   border: 1px solid #ced0d4;
   color: #4b4f56;
 }
+
+.Button.disabled {
+  background-color: #a9acb1 !important;
+  border: 1px solid transparent !important;
+}

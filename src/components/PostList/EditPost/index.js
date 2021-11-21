@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import './index.css';
 import { getProfilePic } from '../../../utils/profile'
 import Button from '../../Button';
 
-function EditPost() {
-  const [postText, setPostText] = useState("");
-
+function EditPost({ editPostText, setEditPostText, initialEditPostText, onClickSave }) {
   // TODO: Possibly include audience selection here?
   return (
     <div className="EditPost">
@@ -14,14 +13,18 @@ function EditPost() {
         <img className="post-profile-pic" src={getProfilePic("alex_doe")} />
         <span className="edit-post-name">Alex Doe</span>
       </div>
-      <textarea rows='6' placeholder="What's on your mind, Alex?" value={postText} onChange={(e) => setPostText(e.target.value)} />
+      <textarea rows='4' placeholder="What's on your mind, Alex?" value={editPostText} onChange={(e) => setEditPostText(e.target.value)} />
 
-      <Button className="edit-post-save" type="confirm" onClick={() => {/*TODO*/ }}>Save</Button>
+      <Button isDisabled={() => editPostText == initialEditPostText} className="edit-post-save" type="confirm" onClick={onClickSave}>Save</Button>
     </div>
   );
 }
 
-// EditPost.propTypes = {
-// };
+EditPost.propTypes = {
+  editPostText: PropTypes.string,
+  setEditPostText: PropTypes.func,
+  initialEditPostText: PropTypes.string,
+  onClickSave: PropTypes.func,
+};
 
 export default EditPost;

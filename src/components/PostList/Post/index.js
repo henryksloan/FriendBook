@@ -25,6 +25,9 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
   const [renderEditPostPopup, setRenderEditPostPopup] = useState(false);
   const [renderConfirmDeletePopup, setRenderConfirmDeletePopup] = useState(false);
 
+  const [editPostText, setEditPostText] = useState("");
+  const [initialEditPostText, setInitialEditPostText] = useState("");
+
   function anyPopup() {
     return renderChangeAudiencePopup || renderEditPostPopup || renderConfirmDeletePopup;
   }
@@ -43,6 +46,17 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
     }
   }
 
+  // TODO: Database registers for each of these
+  function editPost() {
+    setRenderEditPostPopup(false);
+    updatePost(post => post.content = editPostText);
+  }
+
+  function selectAudience(audience) {
+    setRenderChangeAudiencePopup(false);
+    updatePost(post => post.audience = audience);
+  }
+
   function deletePost() {
     if (onDelete) {
       setRenderConfirmDeletePopup(false);
@@ -50,7 +64,13 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
     }
   }
 
-  const editOption = { id: 'edit', text: 'Edit post', onClick: () => { setRenderEditPostPopup(true) } }; // TODO: Implement editing
+  const editOption = {
+    id: 'edit', text: 'Edit post', onClick: () => {
+      setEditPostText(content);
+      setInitialEditPostText(content);
+      setRenderEditPostPopup(true)
+    }
+  };
   const editAudienceOption = { id: 'edit_audience', text: 'Edit audience', onClick: () => { setRenderChangeAudiencePopup(true); } };
   const deleteOption = { id: 'delete', text: 'Move to trash', onClick: () => { setRenderConfirmDeletePopup(true); } };
 
@@ -60,8 +80,6 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
   // if (!isUser && content.includes(getFullName('alex_doe'))) {
   //   menuOptions.splice(1, 0, removeTagOption);
   // }
-
-  let selectAudience = (audience) => { setRenderChangeAudiencePopup(false); updatePost(post => post.audience = audience); };
 
   // TODO: Implement sharing
   // TODO: Implement target_friend
@@ -109,7 +127,8 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
 
       {renderEditPostPopup &&
         <Popup title="Edit post" onClickClose={() => setRenderEditPostPopup(false)}>
-          <EditPost />
+          <EditPost editPostText={editPostText} setEditPostText={setEditPostText} initialEditPostText={initialEditPostText}
+            onClickSave={editPost} />
         </Popup>}
 
       {renderConfirmDeletePopup &&
