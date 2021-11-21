@@ -34,3 +34,13 @@
   font-size: 2em;
   cursor: pointer;
 }
+
+.popup-backdrop {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+  opacity: 0.80
+}

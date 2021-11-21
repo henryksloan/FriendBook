@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { /* getFullName, */ getProfilePic } from '../../../utils/profile'
-import { audienceIcon } from '../../../utils/audience'
+import { audienceIcon, audienceText } from '../../../utils/audience'
 
 import './index.css';
 import ProfileLink from '../../ProfileLink';
@@ -53,6 +53,8 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
   //   menuOptions.splice(1, 0, removeTagOption);
   // }
 
+  let selectAudience = (audience) => { setRenderChangeAudiencePopup(false); updatePost(post => post.audience = audience); };
+
   // TODO: Implement sharing
   // TODO: Implement target_friend
   return (
@@ -63,7 +65,7 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
           <ProfileLink name={name} />
           <p className="post-time">{time}</p>
           {" · "}
-          <img className="audience-icon" src={audienceIcon(audience)} onClick={() => setRenderChangeAudiencePopup(true)} />
+          <img className="audience-icon" src={audienceIcon(audience)} title={audienceText(audience)} onClick={() => setRenderChangeAudiencePopup(true)} />
         </div>
         <Menu labelType={menuLabelTypes.HORIZONTAL_DOTS} options={menuOptions} />
       </div>
@@ -90,9 +92,10 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
       <NewCommentArea inputRef={inputRef}
         onSubmit={comment => updatePost(post => post.comments.push(comment))} />
 
+      {renderChangeAudiencePopup && <div className="popup-backdrop" />}
       {renderChangeAudiencePopup &&
         <Popup title="Select audience" onClickClose={() => setRenderChangeAudiencePopup(false)}>
-          <AudienceSelect />
+          <AudienceSelect onSelect={selectAudience} />
         </Popup>}
     </div>
   );
