@@ -8,10 +8,10 @@ function AudienceSelect() {
     <div className="AudienceSelect">
       <AudienceOption audience="public" />
       <AudienceOption audience="friends" />
-      <AudienceOption audience="friends_except" />
-      <AudienceOption audience="specific_friends" />
-      <AudienceOption audience="only_me" />
-      <AudienceOption audience="custom" />
+      <AudienceOption audience="friends_except" moreButton />
+      <AudienceOption audience="specific_friends" moreButton />
+      <AudienceOption audience="only_me" selected />
+      <AudienceOption audience="custom" moreButton />
     </div>
   );
 }

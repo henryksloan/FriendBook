@@ -56,7 +56,7 @@ export function audienceListItemText(option) {
       return ["Only me", ""];
     case "specific_friends":
       // TODO: Replace with relevant list of friends (given post ID)
-      return ["Specific friends", "(list of friends"];
+      return ["Specific friends", "(list of friends)"];
     case "custom":
       return ["Custom", "Include and exclude friends and lists"];
     case "everyone":
