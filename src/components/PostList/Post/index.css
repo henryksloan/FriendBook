@@ -111,3 +111,16 @@
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
+
+.confirm-delete-popup {
+  padding: 0 16px 8px 24px;
+}
+
+.confirm-delete-popup .Button {
+  margin-left: 8px;
+}
+
+.confirm-delete-buttons {
+  display: flex;
+  justify-content: right;
+}

@@ -21,6 +21,12 @@ import AudienceSelect from '../AudienceSelect';
 function Post({ name, time, audience, photo, liked, comments, content, onUpdate, onDelete }) {
   const inputRef = useRef(null);
   const [renderChangeAudiencePopup, setRenderChangeAudiencePopup] = useState(false);
+  const [renderEditPostPopup, setRenderEditPostPopup] = useState(false);
+  const [renderConfirmDeletePopup, setRenderConfirmDeletePopup] = useState(false);
+
+  function anyPopup() {
+    return renderChangeAudiencePopup || renderEditPostPopup || renderConfirmDeletePopup;
+  }
 
   function getPostObject() {
     return { name, time, audience, photo, liked, comments, content };
@@ -38,13 +44,14 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
 
   function deletePost() {
     if (onDelete) {
+      setRenderConfirmDeletePopup(false);
       onDelete();
     }
   }
 
-  const editOption = { id: 'edit', text: 'Edit post' }; // TODO: Implement editing
+  const editOption = { id: 'edit', text: 'Edit post', onClick: () => { setRenderEditPostPopup() } }; // TODO: Implement editing
   const editAudienceOption = { id: 'edit_audience', text: 'Edit audience', onClick: () => { setRenderChangeAudiencePopup(true); } };
-  const deleteOption = { id: 'delete', text: 'Move to trash', onClick: deletePost };
+  const deleteOption = { id: 'delete', text: 'Move to trash', onClick: () => { setRenderConfirmDeletePopup(true); } };
 
   // const isUser = (name == 'alex_doe');
   // const menuOptions = isUser ? [hideOption, deleteOption] : [hideOption, unfollowOption];
@@ -92,10 +99,27 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
       <NewCommentArea inputRef={inputRef}
         onSubmit={comment => updatePost(post => post.comments.push(comment))} />
 
-      {renderChangeAudiencePopup && <div className="popup-backdrop" />}
+      {anyPopup() && <div className="popup-backdrop" />}
+
       {renderChangeAudiencePopup &&
         <Popup title="Select audience" onClickClose={() => setRenderChangeAudiencePopup(false)}>
           <AudienceSelect onSelect={selectAudience} />
+        </Popup>}
+
+      {renderEditPostPopup &&
+        <Popup title="Edit post" onClickClose={() => setRenderEditPostPopup(false)}>
+          <AudienceSelect onSelect={selectAudience} />
+        </Popup>}
+
+      {renderConfirmDeletePopup &&
+        <Popup title="Move to Your Trash?" onClickClose={() => setRenderConfirmDeletePopup(false)}>
+          <div className="confirm-delete-popup">
+            <p>Items in your trash will be automatically deleted after 30 days. You can delete them earlier from your Trash by going to Activity Log in Settings.</p>
+            <div className="confirm-delete-buttons">
+              <Button type="cancel" onClick={() => setRenderConfirmDeletePopup(false)}>Cancel</Button>
+              <Button type="confirm" onClick={deletePost}>Move</Button>
+            </div>
+          </div>
         </Popup>}
     </div>
   );

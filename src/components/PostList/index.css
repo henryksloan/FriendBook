@@ -27,7 +27,7 @@
   height: 33.5px;
 }
 
-#new-post-actions .Button.confirm, .Button.cancel {
+.Button.confirm, .Button.cancel {
   padding: 0 5px 0 5px;
   display: inline-block;
 }
