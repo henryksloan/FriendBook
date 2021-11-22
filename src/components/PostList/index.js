@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 
 import { useLocalStorage } from '../../hooks/local_storage';
 
-import Draggable from 'react-draggable';
-
 import './index.css';
 import defaultPosts from '../../data/posts.json';
 import NewPostArea from './NewPostArea';
 import Post from './Post';
-import Popup from '../Popup';
+import Suggestion from './Suggestion';
 
 function PostList({ forTimeline, whoseTimeline }) {
   // TODO: Either acknowledge for_user, or make different lists for different users
@@ -49,11 +47,7 @@ function PostList({ forTimeline, whoseTimeline }) {
           {...post} />)}
 
       {renderSuggestion &&
-        <Draggable>
-          <Popup title="Suggestion" onClickClose={() => setRenderSuggestion(false)}>
-            Abc
-          </Popup>
-        </Draggable>}
+        <Suggestion onClickClose={() => { setRenderSuggestion(false); }} />}
     </div>
   );
 }
