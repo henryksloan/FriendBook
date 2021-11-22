@@ -16,8 +16,19 @@
   right: 0;
 }
 
-.menu-list p {
+.menu-list-title {
   padding: 8px 12px 4px 12px;
+  margin: 0;
+  font-size: 12px;
+  color: #4b4f56;
+}
+
+.menu-list p {
+  margin: 0;
+}
+
+.menu-list .menu-button-subtext {
+  padding-top: 4px;
   margin: 0;
   font-size: 12px;
   color: #4b4f56;
@@ -27,7 +38,12 @@
   padding: 8px 12px;
   color: black;
   text-decoration: none;
-  display: block;
+  display: flex;
+}
+
+.menu-list a img {
+  margin-right: 4px;
+  height: 20px;
 }
 
 #menu-button-subtext {

@@ -17,7 +17,7 @@ export const menuLabelTypes = {
   GEAR: "gear",
 }
 
-function Menu({ title, labelType, openUpwards, options, seeMoreOptions, seeAllOptions, currentOption }) {
+function Menu({ title, labelType, openUpwards, options, icons, seeMoreOptions, seeAllOptions, currentOption, width }) {
   const [open, setOpen] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -28,6 +28,7 @@ function Menu({ title, labelType, openUpwards, options, seeMoreOptions, seeAllOp
   function optionsToButton(options) {
     return options.map((option, index) =>
       <MenuButton key={index} id={option.id} text={option.text} subtext={option.subtext}
+        icon={icons && icons[index]}
         onClick={id => {
           if (option.onClick) {
             option.onClick(id);
@@ -63,8 +64,8 @@ function Menu({ title, labelType, openUpwards, options, seeMoreOptions, seeAllOp
       <span className={"menu-icon" + ' ' + (labelType || menuLabelTypes.VERTICAl_DOTS)}></span>
     </Button>;
 
-  const menuList = open && <div className="menu-list">
-    {title && <p>{title}</p>}
+  const menuList = open && <div className="menu-list" style={{ width }}>
+    {title && <p className="menu-list-title">{title}</p>}
     {buttons}
   </div>;
 
@@ -82,9 +83,11 @@ Menu.propTypes = {
   labelType: PropTypes.string, // One of menuLabelTypes
   openUpwards: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.exact(menuOptionShape)).isRequired,
+  icons: PropTypes.arrayOf(PropTypes.string),
   seeMoreOptions: PropTypes.arrayOf(PropTypes.exact(menuOptionShape)),
   seeAllOptions: PropTypes.arrayOf(PropTypes.exact(menuOptionShape)),
   currentOption: PropTypes.func,
+  width: PropTypes.string,
 };
 
 export default Menu;

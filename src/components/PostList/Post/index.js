@@ -16,6 +16,9 @@ import NewCommentArea from './NewCommentArea';
 import like_icon from '../../../assets/icons/like_icon.png';
 import comment_icon from '../../../assets/icons/comment_icon.png';
 import share_icon from '../../../assets/icons/share_icon.png';
+import edit_icon from '../../../assets/icons/edit_icon.png';
+import change_audience_icon from '../../../assets/icons/change_audience_icon.png';
+import delete_icon from '../../../assets/icons/delete_icon.png';
 import AudienceSelect from '../AudienceSelect';
 import EditPost from '../EditPost';
 
@@ -78,11 +81,12 @@ function Post({ name, time, audience, photo, liked, comments, content, post_id, 
     }
   };
   const editAudienceOption = { id: 'edit_audience', text: 'Edit audience', onClick: () => { setRenderChangeAudiencePopup(true); } };
-  const deleteOption = { id: 'delete', text: 'Move to trash', onClick: () => { setRenderConfirmDeletePopup(true); } };
+  const deleteOption = { id: 'delete', text: 'Move to trash', subtext: 'Items in your trash are deleted after 30 days.', onClick: () => { setRenderConfirmDeletePopup(true); } };
 
   // const isUser = (name == 'alex_doe');
   // const menuOptions = isUser ? [hideOption, deleteOption] : [hideOption, unfollowOption];
   const menuOptions = [editOption, editAudienceOption, deleteOption];
+  const menuIcons = [edit_icon, change_audience_icon, delete_icon];
   // if (!isUser && content.includes(getFullName('alex_doe'))) {
   //   menuOptions.splice(1, 0, removeTagOption);
   // }
@@ -99,7 +103,7 @@ function Post({ name, time, audience, photo, liked, comments, content, post_id, 
           {" · "}
           <img className="audience-icon" src={audienceIcon(audience)} title={audienceText(audience)} onClick={() => setRenderChangeAudiencePopup(true)} />
         </div>
-        <Menu labelType={menuLabelTypes.HORIZONTAL_DOTS} options={menuOptions} />
+        <Menu labelType={menuLabelTypes.HORIZONTAL_DOTS} options={menuOptions} icons={menuIcons} width="300px" />
       </div>
 
       <PostText>{content}</PostText>
