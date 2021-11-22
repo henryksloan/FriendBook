@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { useLocalStorage } from '../../hooks/local_storage';
+
+import Draggable from 'react-draggable';
 
 import './index.css';
 import defaultPosts from '../../data/posts.json';
 import NewPostArea from './NewPostArea';
 import Post from './Post';
+import Popup from '../Popup';
 
 function PostList({ forTimeline, whoseTimeline }) {
   // TODO: Either acknowledge for_user, or make different lists for different users
   const [posts, setPosts] = useLocalStorage("posts", defaultPosts);
+
+  const [renderSuggestion, setRenderSuggestion] = useState(true);
 
   function onPost(content, photo, audience) {
     // TODO: Adaptation stuff
@@ -42,6 +47,13 @@ function PostList({ forTimeline, whoseTimeline }) {
           onUpdate={newPost => onUpdate(i, newPost)}
           onDelete={() => setPosts(posts.slice(0, i).concat(posts.slice(i + 1)))}
           {...post} />)}
+
+      {renderSuggestion &&
+        <Draggable>
+          <Popup title="Suggestion" onClickClose={() => setRenderSuggestion(false)}>
+            Abc
+          </Popup>
+        </Draggable>}
     </div>
   );
 }

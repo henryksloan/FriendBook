@@ -11,13 +11,13 @@ function Button({ children, className, id, type, isDisabled, href, routeTo, onCl
   // TODO: Style prop?
   if (routeTo) {
     return (
-      <Link className={classNames} id={id} onClick={onClick} to={routeTo}>
+      <Link className={classNames} id={id} onClick={isDisabled ? () => { } : onClick} to={routeTo}>
         {children}
       </Link>
     )
   } else {
     return (
-      <a className={classNames} id={id} href={href} onClick={onClick}>
+      <a className={classNames} id={id} href={href} onClick={isDisabled ? () => { } : onClick}>
         {children}
       </ a >
     );
