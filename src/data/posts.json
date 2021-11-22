@@ -15,7 +15,7 @@
       "audience": "public",
       "time": "1 December",
       "privacy_sensitivity": "mid",
-      "post-id": "2"
+      "post_id": "2"
    },
    {
       "name": "alex_doe",
@@ -51,9 +51,9 @@
       "content": "Happy birthday to my Mom. Enjoy your special day and thanks for always putting up with me. I love you.✨🖤",
       "comments": [
          {
-            "name":"jack_scout",
-            "content":"Best of Birthday wishes to her",
-            "liked":true
+            "name": "jack_scout",
+            "content": "Best of Birthday wishes to her",
+            "liked": true
          }
       ],
       "audience":"public",

@@ -4,20 +4,20 @@ import { Link } from 'react-router-dom';
 
 import './index.css';
 
-function Button({ children, id, type, isDisabled, href, routeTo, onClick }) {
+function Button({ children, className, id, type, isDisabled, href, routeTo, onClick }) {
   const disabled = (isDisabled && isDisabled()) ? " disabled" : "";
-  const className = "Button " + (type || "default ") + disabled;
+  const classNames = "Button " + (type || "default ") + disabled + " " + className;
   // TODO: Highlighting
   // TODO: Style prop?
   if (routeTo) {
     return (
-      <Link className={className} id={id} onClick={onClick} to={routeTo}>
+      <Link className={classNames} id={id} onClick={isDisabled && isDisabled() ? () => { } : onClick} to={routeTo}>
         {children}
       </Link>
     )
   } else {
     return (
-      <a className={className} id={id} href={href} onClick={onClick}>
+      <a className={classNames} id={id} href={href} onClick={isDisabled && isDisabled() ? () => { } : onClick}>
         {children}
       </ a >
     );
@@ -26,6 +26,7 @@ function Button({ children, id, type, isDisabled, href, routeTo, onClick }) {
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   id: PropTypes.string,
   type: PropTypes.string,
   isDisabled: PropTypes.func,

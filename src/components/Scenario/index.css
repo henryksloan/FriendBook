@@ -123,3 +123,11 @@
   border-style: solid;
   border-color: transparent black transparent transparent;
 }
+
+.incomplete-popup {
+  text-align: center;
+}
+
+.incomplete-popup h3 {
+  display: inline-block;
+}

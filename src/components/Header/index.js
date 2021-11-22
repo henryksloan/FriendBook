@@ -17,7 +17,7 @@ import settings_highlight from '../../assets/icons/settings_highlight.png';
 import settings_black from '../../assets/icons/settings_black.png';
 
 function Header() {
-  const [showNotificationIcon, setShowNotificationIcon] = useState(true);
+  const [showNotificationIcon, setShowNotificationIcon] = useState(false);
   const [renderSettings, setRenderSettings] = useState(false);
   const [renderNotifications, setRenderNotifications] = useState(false);
 

@@ -21,9 +21,10 @@ function NewPostArea({ onPost, forTimeline, whoseTimeline }) {
   }
 
   const placeholder = (forTimeline && whoseTimeline != "alex_doe")
-    ? `Write something to ${this.props.name.split(" ")[0]}`
+    ? `Write something to ${whoseTimeline}`
     : "What's on your mind, Alex?";
 
+  // TODO: Possibly replace with the modern popup style
   // TODO: Add custom friends lists as audience options
   // TODO: Consider whether some audience options should be under "More" or "See all" (highlight accordingly)
   // TODO: Uploading
