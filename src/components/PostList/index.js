@@ -20,7 +20,7 @@ function PostList({ forTimeline, whoseTimeline }) {
   // Blocks suggestions
   const [postsModified, setPostsModified] = useLocalStorage("posts_modified", Array(10).fill(false));
   // Don't show suggestions that have been accepted or dismissed
-  const [suggestionsDismissed, setSuggestionsDismissed] = useLocalStorage("suggestions_ismissed", Array(10).fill(false));
+  const [suggestionsDismissed, setSuggestionsDismissed] = useLocalStorage("suggestions_dismissed", Array(10).fill(false));
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,7 +38,7 @@ function PostList({ forTimeline, whoseTimeline }) {
       }
     }
 
-    if (10 <= suggestionTimer && suggestionTimer <= 60) {
+    if (/*10 */ 0 <= suggestionTimer && suggestionTimer <= 60) {
       suggestIfValid(1);
     } else if (70 <= suggestionTimer && suggestionTimer <= 120) {
       suggestIfValid(7);
@@ -91,12 +91,14 @@ function PostList({ forTimeline, whoseTimeline }) {
     }
   }
 
+  function getPostContent(suggestionNum) {
+    let post = posts.find(post => post.post_id == suggestionNum);
+    return post ? post.content : "";
+  }
+
   let filterPosts = post => !forTimeline || post.name == whoseTimeline;
   return (
     <div className="PostList">
-      TODO: Remove this: <br />
-      {suggestionTimer} <br />
-      {whichSuggestion}
       <NewPostArea onPost={onPost} forTimeline={forTimeline} whoseTimeline={whoseTimeline} />
       {posts.filter(filterPosts).map((post, i) =>
         <Post key={posts.length - i}
@@ -106,7 +108,12 @@ function PostList({ forTimeline, whoseTimeline }) {
           {...post} />)}
 
       {(whichSuggestion != 0) &&
-        <Suggestion whichSuggestion={whichSuggestion} onClickClose={() => { dismissSuggestion(whichSuggestion); setWhichSuggestion(0); }} />}
+        <Suggestion
+          whichSuggestion={whichSuggestion}
+          postText={getPostContent(whichSuggestion)}
+          onClickClose={() => { dismissSuggestion(whichSuggestion); setWhichSuggestion(0); }}
+          onClickOkay={() => { /* TODO */ dismissSuggestion(whichSuggestion); setWhichSuggestion(0); }}
+        />}
     </div>
   );
 }
