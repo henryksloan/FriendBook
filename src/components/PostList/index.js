@@ -38,11 +38,11 @@ function PostList({ forTimeline, whoseTimeline }) {
       }
     }
 
-    if (10 <= suggestionTimer && suggestionTimer <= 60) {
+    if (20 <= suggestionTimer && suggestionTimer <= 70) {
       suggestIfValid(1);
-    } else if (70 <= suggestionTimer && suggestionTimer <= 120) {
+    } else if (80 <= suggestionTimer && suggestionTimer <= 130) {
       suggestIfValid(7);
-    } else if (130 <= suggestionTimer && suggestionTimer <= 180) {
+    } else if (140 <= suggestionTimer && suggestionTimer <= 190) {
       suggestIfValid(10);
     } else {
       suggestIfValid(0); // No suggestion by default
@@ -93,7 +93,7 @@ function PostList({ forTimeline, whoseTimeline }) {
 
   function getPostContent(suggestionNum) {
     let post = posts.find(post => post.post_id == suggestionNum);
-    return { postText: post.content, postPhoto: post.photo };
+    return post ? { postText: post.content, postPhoto: post.photo } : {};
   }
 
   let filterPosts = post => !forTimeline || post.name == whoseTimeline;
