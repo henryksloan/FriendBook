@@ -29,7 +29,7 @@ function ExitExperiment() {
   // let completionPopup = <CompletionPopup
   //   destroy={() => { setRenderCompletionPopup(false) }} />
   let completionPopup = <Popup className="incomplete-popup" title="Incomplete" onClickClose={() => setRenderCompletionPopup(false)}>
-    <h3>Please continue using FriendBook for a bit longer</h3>
+    <h3>Please take some more time to review and ensure that you are okay with all the posts on FriendBook before you Exit</h3>
   </Popup>
 
   return (
