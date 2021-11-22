@@ -13,7 +13,7 @@ function Suggestion({ onClickClose }) {
     <Draggable>
       <Popup title="Suggestion" onClickClose={onClickClose}>
         <div className="suggestion-content">
-          <img src={dinosaur_image} />
+          <img src={dinosaur_image} draggable="false" />
         </div>
       </Popup>
     </Draggable>

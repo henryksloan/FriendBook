@@ -10,8 +10,8 @@
 
 .Popup.react-draggable {
   z-index: 1050;
-  left: 25% !important;
-  top: 50% !important;
+  left: 30% !important;
+  top: 25% !important;
 }
 
 .popup-container {

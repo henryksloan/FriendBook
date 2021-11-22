@@ -19,7 +19,7 @@ import share_icon from '../../../assets/icons/share_icon.png';
 import AudienceSelect from '../AudienceSelect';
 import EditPost from '../EditPost';
 
-function Post({ name, time, audience, photo, liked, comments, content, onUpdate, onDelete }) {
+function Post({ name, time, audience, photo, liked, comments, content, post_id, onUpdate, onDelete, registerAction }) {
   const inputRef = useRef(null);
   const [renderChangeAudiencePopup, setRenderChangeAudiencePopup] = useState(false);
   const [renderEditPostPopup, setRenderEditPostPopup] = useState(false);
@@ -49,17 +49,23 @@ function Post({ name, time, audience, photo, liked, comments, content, onUpdate,
   // TODO: Database registers for each of these
   function editPost() {
     setRenderEditPostPopup(false);
+    let details = `"${initialEditPostText}" => "${editPostText}"`;
+    registerAction(post_id, "edit", details);
     updatePost(post => post.content = editPostText);
   }
 
-  function selectAudience(audience) {
+  function selectAudience(newAudience) {
     setRenderChangeAudiencePopup(false);
-    updatePost(post => post.audience = audience);
+    let details = `"${audience}" => "${newAudience}"`;
+    registerAction(post_id, "change_audience", details);
+    updatePost(post => post.audience = newAudience);
   }
 
   function deletePost() {
     if (onDelete) {
       setRenderConfirmDeletePopup(false);
+      let postIdCopy = `${post_id}`;
+      registerAction(postIdCopy, "delete");
       onDelete();
     }
   }
@@ -153,8 +159,10 @@ Post.propTypes = {
   liked: PropTypes.bool,
   comments: PropTypes.arrayOf(PropTypes.object),
   content: PropTypes.string,
+  post_id: PropTypes.string,
   onUpdate: PropTypes.func,
   onDelete: PropTypes.func,
+  registerAction: PropTypes.func,
 };
 
 export default Post;
