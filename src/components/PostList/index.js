@@ -38,7 +38,7 @@ function PostList({ forTimeline, whoseTimeline }) {
       }
     }
 
-    if (/*10 */ 0 <= suggestionTimer && suggestionTimer <= 60) {
+    if (10 <= suggestionTimer && suggestionTimer <= 60) {
       suggestIfValid(1);
     } else if (70 <= suggestionTimer && suggestionTimer <= 120) {
       suggestIfValid(7);
@@ -93,7 +93,7 @@ function PostList({ forTimeline, whoseTimeline }) {
 
   function getPostContent(suggestionNum) {
     let post = posts.find(post => post.post_id == suggestionNum);
-    return post ? post.content : "";
+    return { postText: post.content, postPhoto: post.photo };
   }
 
   let filterPosts = post => !forTimeline || post.name == whoseTimeline;
@@ -110,7 +110,7 @@ function PostList({ forTimeline, whoseTimeline }) {
       {(whichSuggestion != 0) &&
         <Suggestion
           whichSuggestion={whichSuggestion}
-          postText={getPostContent(whichSuggestion)}
+          {...getPostContent(whichSuggestion)}
           onClickClose={() => { dismissSuggestion(whichSuggestion); setWhichSuggestion(0); }}
           onClickOkay={() => { /* TODO */ dismissSuggestion(whichSuggestion); setWhichSuggestion(0); }}
         />}

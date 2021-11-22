@@ -12,15 +12,15 @@ import { getProfilePic } from '../../../utils/profile'
 import dinosaur_image from '../../../assets/icons/dinosaur.png';
 import suggestions from '../../../data/tone.json';
 
-function Suggestion({ whichSuggestion, postText, onClickClose, onClickOkay }) {
+function Suggestion({ whichSuggestion, postText, postPhoto, onClickClose, onClickOkay }) {
   let location = useLocation();
   let tone = new URLSearchParams(location.search).get("condition");
   let suggestion = suggestions.find(obj => parseInt(obj.post_id) == whichSuggestion && obj.tone == tone);
   return (
     <Draggable>
-      <Popup title="Suggestion" onClickClose={onClickClose}>
+      <Popup title="Privacy Tip" onClickClose={onClickClose}>
         <div className="suggestion-content">
-          <img src={dinosaur_image} draggable="false" />
+          <img src={dinosaur_image} draggable="false" width="210" height="215" />
           <div className="suggestion-text">
             <p>{suggestion.text}</p>
             <div className="suggestion-preview">
@@ -29,6 +29,7 @@ function Suggestion({ whichSuggestion, postText, onClickClose, onClickOkay }) {
                 <p>Alex Doe</p>
               </div>
               <p>{postText}</p>
+              {postPhoto && <img src={process.env.PUBLIC_URL + postPhoto} width="100%" height="100%"></img>}
             </div>
             <div className="suggestion-buttons">
               <Button type="cancel" onClick={onClickClose}>No thanks</Button>
@@ -44,6 +45,7 @@ function Suggestion({ whichSuggestion, postText, onClickClose, onClickOkay }) {
 Suggestion.propTypes = {
   whichSuggestion: PropTypes.number,
   postText: PropTypes.string,
+  postPhoto: PropTypes.string,
   onClickClose: PropTypes.func.isRequired,
   onClickOkay: PropTypes.func.isRequired,
 };
