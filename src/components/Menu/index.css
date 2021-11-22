@@ -27,7 +27,12 @@
   padding: 8px 12px;
   color: black;
   text-decoration: none;
-  display: block;
+  display: flex;
+}
+
+.menu-list a img {
+  margin-right: 4px;
+  height: 20px;
 }
 
 #menu-button-subtext {
