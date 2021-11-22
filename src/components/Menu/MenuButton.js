@@ -8,8 +8,10 @@ function MenuButton({ id, text, subtext, icon, onClick }) {
   return (
     <Button className="MenuButton" onClick={() => onClick && onClick(id)} >
       <img src={icon} />
-      {text}
-      {subtext && <p id="menu-button-subtext">{subtext}</p>}
+      <div>
+        <p>{text}</p>
+        {subtext && <p className="menu-button-subtext">{subtext}</p>}
+      </div>
     </Button>
   );
 }

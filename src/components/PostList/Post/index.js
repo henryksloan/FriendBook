@@ -81,7 +81,7 @@ function Post({ name, time, audience, photo, liked, comments, content, post_id, 
     }
   };
   const editAudienceOption = { id: 'edit_audience', text: 'Edit audience', onClick: () => { setRenderChangeAudiencePopup(true); } };
-  const deleteOption = { id: 'delete', text: 'Move to trash', onClick: () => { setRenderConfirmDeletePopup(true); } };
+  const deleteOption = { id: 'delete', text: 'Move to trash', subtext: 'Items in your trash are deleted after 30 days.', onClick: () => { setRenderConfirmDeletePopup(true); } };
 
   // const isUser = (name == 'alex_doe');
   // const menuOptions = isUser ? [hideOption, deleteOption] : [hideOption, unfollowOption];
@@ -103,7 +103,7 @@ function Post({ name, time, audience, photo, liked, comments, content, post_id, 
           {" · "}
           <img className="audience-icon" src={audienceIcon(audience)} title={audienceText(audience)} onClick={() => setRenderChangeAudiencePopup(true)} />
         </div>
-        <Menu labelType={menuLabelTypes.HORIZONTAL_DOTS} options={menuOptions} icons={menuIcons} />
+        <Menu labelType={menuLabelTypes.HORIZONTAL_DOTS} options={menuOptions} icons={menuIcons} width="300px" />
       </div>
 
       <PostText>{content}</PostText>
