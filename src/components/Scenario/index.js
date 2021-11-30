@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from "react-router-dom";
 
 import './index.css';
 import ProfileLink from '../ProfileLink'
 import ExitExperiment from './ExitExperiment'
 
 function Scenario() {
+  let location = useLocation();
+  let session_id = new URLSearchParams(location.search).get("session_id");
+  let condition = new URLSearchParams(location.search).get("condition");
+  useEffect(() => {
+    const storage_session_id = localStorage.getItem("session_id");
+    if (!storage_session_id && session_id) {
+      localStorage.setItem("session_id", session_id);
+    }
+    const storage_condition = localStorage.getItem("condition");
+    if (!storage_condition && condition) {
+      localStorage.setItem("condition", condition);
+    }
+  }, []);
+
   return (
     <div className="Scenario">
       <h3 className="scenario-head">What is my Task?</h3>

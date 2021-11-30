@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { useLocation } from "react-router-dom";
 
 import Popup from '../Popup'
 
 
 function ExitExperiment() {
-  let location = useLocation();
-  let session_id = new URLSearchParams(location.search).get("session_id");
-  let condition = new URLSearchParams(location.search).get("condition");
+  let session_id = localStorage.getItem("session_id");
+  let condition = localStorage.getItem("condition");
 
   const [renderCompletionPopup, setRenderCompletionPopup] = useState(false);
 
@@ -26,8 +24,6 @@ function ExitExperiment() {
     }
   }
 
-  // let completionPopup = <CompletionPopup
-  //   destroy={() => { setRenderCompletionPopup(false) }} />
   let completionPopup = <Popup className="incomplete-popup" title="Incomplete" onClickClose={() => setRenderCompletionPopup(false)}>
     <h3>Please take some more time to review and ensure that you are okay with all the posts on FriendBook before you Exit</h3>
   </Popup>
