@@ -49,13 +49,7 @@
    {
       "name": "alex_doe",
       "content": "Happy birthday to my Mom. Enjoy your special day and thanks for always putting up with me. I love you.✨🖤",
-      "comments": [
-         {
-            "name": "jack_scout",
-            "content": "Best of Birthday wishes to her",
-            "liked": true
-         }
-      ],
+      "comments": [],
       "audience":"public",
       "time":"27 November",
       "privacy_sensitivity":"low",
@@ -83,9 +77,7 @@
    {
       "name":"alex_doe",
       "content":"My managers are the best for the get-to-together party they threw last weekend!😇🤔",
-      "comments":[
-         
-      ],
+      "comments":[],
       "audience":"public",
       "time":"20 Novemeber",
       "privacy_sensitivity":"low",
