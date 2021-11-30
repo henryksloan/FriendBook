@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useLocation } from "react-router-dom";
 
 import Draggable from 'react-draggable';
 
@@ -13,9 +12,9 @@ import dinosaur_image from '../../../assets/icons/dinosaur.png';
 import suggestions from '../../../data/tone.json';
 
 function Suggestion({ whichSuggestion, postText, postPhoto, onClickClose, onClickOkay }) {
-  let location = useLocation();
-  let tone = new URLSearchParams(location.search).get("condition");
+  let tone = localStorage.getItem("condition");
   let suggestion = suggestions.find(obj => parseInt(obj.post_id) == whichSuggestion && obj.tone == tone);
+  if (!suggestion) return <span></span>;
   return (
     <Draggable>
       <Popup title="Privacy Tip" onClickClose={onClickClose}>
