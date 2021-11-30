@@ -40,7 +40,6 @@ exports.registerUser = async (req, res) => {
               console.log(err.stack)
               res.sendStatus(500);
             } else {
-              // res.send(`Hello World! ${process.env.TEST_SECRET} ${db_res.rows.length} ${session_id} ${condition}`);
               res.sendStatus(200);
             }
             await client.end()

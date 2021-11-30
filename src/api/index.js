@@ -5,9 +5,7 @@ export function cloudFunctionTest(session_id, condition) {
       .catch(error => console.log(error));
   } else {
     // Production
-    fetch('https://us-central1-friendbook-328622.cloudfunctions.net/helloGET')
-      .then(res => res.text())
-      .then(data => console.log(data))
+    fetch(`https://us-central1-friendbook-328622.cloudfunctions.net/registerUser?session_id=${session_id}&condition=${condition}`)
       .catch(error => console.log(error));
   }
 }
