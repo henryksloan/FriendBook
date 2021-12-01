@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { useLocalStorage } from '../../hooks/local_storage';
@@ -8,6 +8,8 @@ import defaultPosts from '../../data/posts.json';
 import NewPostArea from './NewPostArea';
 import Post from './Post';
 import Suggestion from './Suggestion';
+
+import suggestions from '../../data/tone.json';
 
 function PostList({ forTimeline, whoseTimeline }) {
   // TODO: Either acknowledge for_user, or make different lists for different users
@@ -21,6 +23,11 @@ function PostList({ forTimeline, whoseTimeline }) {
   const [postsModified, setPostsModified] = useLocalStorage("posts_modified", Array(10).fill(false));
   // Don't show suggestions that have been accepted or dismissed
   const [suggestionsDismissed, setSuggestionsDismissed] = useLocalStorage("suggestions_dismissed", Array(10).fill(false));
+
+  const postsRef = useRef([]);
+  useEffect(() => {
+    postsRef.current = postsRef.current.slice(0, posts.length);
+  }, [posts]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -53,6 +60,30 @@ function PostList({ forTimeline, whoseTimeline }) {
     let newDismissed = [...suggestionsDismissed];
     newDismissed[suggestionNum - 1] = true;
     setSuggestionsDismissed(newDismissed);
+  }
+
+  function acceptSuggestion(suggestionNum) {
+    dismissSuggestion(suggestionNum);
+
+    let suggestion = suggestions.find(obj => parseInt(obj.post_id) == suggestionNum);
+    if (!suggestion) return;
+
+    let postIndex = posts.findIndex(post => post.post_id == suggestionNum);
+    if (postIndex >= 0) {
+      const postRef = postsRef.current[postIndex];
+      if (!postRef) return;
+      switch (suggestion.action) {
+        case 'change_audience':
+          postsRef.current[postIndex].changeAudience();
+          break;
+        case 'edit_post':
+          postsRef.current[postIndex].editPost();
+          break;
+        case 'delete_post':
+          postsRef.current[postIndex].deletePost();
+          break;
+      }
+    }
   }
 
   function onPost(content, photo, audience) {
@@ -102,6 +133,7 @@ function PostList({ forTimeline, whoseTimeline }) {
       <NewPostArea onPost={onPost} forTimeline={forTimeline} whoseTimeline={whoseTimeline} />
       {posts.filter(filterPosts).map((post, i) =>
         <Post key={posts.length - i}
+          ref={el => postsRef.current[i] = el}
           onUpdate={newPost => onUpdate(i, newPost)}
           onDelete={() => setPosts(posts.slice(0, i).concat(posts.slice(i + 1)))}
           registerAction={registerAction}
@@ -112,7 +144,7 @@ function PostList({ forTimeline, whoseTimeline }) {
           whichSuggestion={whichSuggestion}
           {...getPostContent(whichSuggestion)}
           onClickClose={() => { dismissSuggestion(whichSuggestion); setWhichSuggestion(0); }}
-          onClickOkay={() => { /* TODO */ dismissSuggestion(whichSuggestion); setWhichSuggestion(0); }}
+          onClickOkay={() => { acceptSuggestion(whichSuggestion); setWhichSuggestion(0); }}
         />}
     </div>
   );

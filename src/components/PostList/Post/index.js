@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useImperativeHandle, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { /* getFullName, */ getProfilePic } from '../../../utils/profile'
@@ -22,7 +22,7 @@ import delete_icon from '../../../assets/icons/delete_icon.png';
 import AudienceSelect from '../AudienceSelect';
 import EditPost from '../EditPost';
 
-function Post({ name, time, audience, photo, liked, comments, content, post_id, onUpdate, onDelete, registerAction }) {
+const Post = forwardRef(({ name, time, audience, photo, liked, comments, content, post_id, onUpdate, onDelete, registerAction }, ref) => {
   const inputRef = useRef(null);
   const [renderChangeAudiencePopup, setRenderChangeAudiencePopup] = useState(false);
   const [renderEditPostPopup, setRenderEditPostPopup] = useState(false);
@@ -30,6 +30,18 @@ function Post({ name, time, audience, photo, liked, comments, content, post_id, 
 
   const [editPostText, setEditPostText] = useState("");
   const [initialEditPostText, setInitialEditPostText] = useState("");
+
+  useImperativeHandle(ref, () => ({
+    changeAudience() {
+      setRenderChangeAudiencePopup(true);
+    },
+    editPost() {
+      setRenderEditPostPopup(true);
+    },
+    deletePost() {
+      setRenderConfirmDeletePopup(true);
+    }
+  }), [post_id, renderChangeAudiencePopup]);
 
   function anyPopup() {
     return renderChangeAudiencePopup || renderEditPostPopup || renderConfirmDeletePopup;
@@ -153,7 +165,9 @@ function Post({ name, time, audience, photo, liked, comments, content, post_id, 
         </Popup>}
     </div>
   );
-}
+});
+
+Post.displayName = 'Post';
 
 Post.propTypes = {
   name: PropTypes.string.isRequired,
