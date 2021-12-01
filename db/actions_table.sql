@@ -5,7 +5,8 @@ CREATE TYPE ACTION_TYPE AS ENUM (
 );
 
 CREATE TABLE IF NOT EXISTS actions (
-  session_id VARCHAR PRIMARY KEY,
+  action_id SERIAL PRIMARY KEY,
+  session_id VARCHAR NOT NULL,
   target_id VARCHAR NOT NULL,
   action_type ACTION_TYPE NOT NULL,
   details VARCHAR,

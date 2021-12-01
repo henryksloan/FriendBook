@@ -42,7 +42,10 @@ function PostList({ forTimeline, whoseTimeline }) {
       // If the user has modified the post in any way, or already dismissed
       // the suggestion, don't show the suggestion
       if (!postsModified[suggestionNum - 1] && !suggestionsDismissed[suggestionNum - 1]) {
-        setWhichSuggestion(suggestionNum);
+        if (whichSuggestion == 0) {
+          registerAction(suggestionNum, "show", "", true);
+          setWhichSuggestion(suggestionNum);
+        }
       }
     }
 
@@ -53,9 +56,9 @@ function PostList({ forTimeline, whoseTimeline }) {
     } else if (140 <= suggestionTimer && suggestionTimer <= 190) {
       suggestIfValid(10);
     } else {
-      suggestIfValid(0); // No suggestion by default
+      setWhichSuggestion(0); // No suggestion by default
     }
-  }, [suggestionTimer]);
+  }, [suggestionTimer, whichSuggestion]);
 
   function dismissSuggestion(suggestionNum) {
     let newDismissed = [...suggestionsDismissed];
@@ -63,8 +66,14 @@ function PostList({ forTimeline, whoseTimeline }) {
     setSuggestionsDismissed(newDismissed);
   }
 
+  function rejectSuggestion(suggestionNum) {
+    dismissSuggestion(suggestionNum);
+    registerAction(suggestionNum, "reject", "", true);
+  }
+
   function acceptSuggestion(suggestionNum) {
     dismissSuggestion(suggestionNum);
+    registerAction(suggestionNum, "accept", "", true);
 
     let suggestion = suggestions.find(obj => parseInt(obj.post_id) == suggestionNum);
     if (!suggestion) return;
@@ -142,7 +151,7 @@ function PostList({ forTimeline, whoseTimeline }) {
         <Suggestion
           whichSuggestion={whichSuggestion}
           {...getPostContent(whichSuggestion)}
-          onClickClose={() => { dismissSuggestion(whichSuggestion); setWhichSuggestion(0); }}
+          onClickClose={() => { rejectSuggestion(whichSuggestion); setWhichSuggestion(0); }}
           onClickOkay={() => { acceptSuggestion(whichSuggestion); setWhichSuggestion(0); }}
         />}
     </div>

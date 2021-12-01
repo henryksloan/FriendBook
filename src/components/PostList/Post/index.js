@@ -36,7 +36,7 @@ const Post = forwardRef(({ name, time, audience, photo, liked, comments, content
       setRenderChangeAudiencePopup(true);
     },
     editPost() {
-      setRenderEditPostPopup(true);
+      onOpenEdit();
     },
     deletePost() {
       setRenderConfirmDeletePopup(true);
@@ -59,6 +59,12 @@ const Post = forwardRef(({ name, time, audience, photo, liked, comments, content
     if (onUpdate) {
       onUpdate(postObj);
     }
+  }
+
+  function onOpenEdit() {
+    setEditPostText(content);
+    setInitialEditPostText(content);
+    setRenderEditPostPopup(true)
   }
 
   // TODO: Database registers for each of these
@@ -86,11 +92,7 @@ const Post = forwardRef(({ name, time, audience, photo, liked, comments, content
   }
 
   const editOption = {
-    id: 'edit', text: 'Edit post', onClick: () => {
-      setEditPostText(content);
-      setInitialEditPostText(content);
-      setRenderEditPostPopup(true)
-    }
+    id: 'edit', text: 'Edit post', onClick: onOpenEdit
   };
   const editAudienceOption = { id: 'edit_audience', text: 'Edit audience', onClick: () => { setRenderChangeAudiencePopup(true); } };
   const deleteOption = { id: 'delete', text: 'Move to trash', subtext: 'Items in your trash are deleted after 30 days.', onClick: () => { setRenderConfirmDeletePopup(true); } };
