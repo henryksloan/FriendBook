@@ -1,5 +1,5 @@
 .Scenario {
-  width: 275px;
+  width: 350px;
   top: 1vh;
   left: 8px;
   background-color: #efeff4;
@@ -48,6 +48,7 @@
 
 .scenario-list li {
   list-style-type: none;
+  width: 100%;
 }
 
 .tooltip {
@@ -97,6 +98,7 @@
   box-shadow: 0 2px 4px rgba(0,0,0,.4);
   text-align: center;
   cursor: pointer;
+  margin-top: 50px;
 }
 
 .finish-button label {
