@@ -4,7 +4,7 @@
       "content": "I work with a bunch of fucking idiots.",
       "comments": [],
       "audience": "public",
-      "time": "3 December",
+      "time": "Just Now",
       "privacy_sensitivity": "high",
       "post_id": "1"
    },
@@ -23,7 +23,7 @@
       "content": "Going to Fly the friendly skies for my upcoming vacation traveling to New York from California. Super excited! ",
       "comments": [],
       "audience": "public",
-      "time": "1 December",
+      "time": "30 November",
       "privacy_sensitivity": "low",
       "post_id": "3"
    },
@@ -32,7 +32,7 @@
       "content": "I just wanna skip out on work i'm too tired for this shit today.",
       "comments": [],
       "audience": "public",
-      "time": "1 December",
+      "time": "30 November",
       "privacy_sensitivity": "high",
       "post_id": "4"
    },
@@ -42,24 +42,18 @@
       "content": "I am amazed  week after week by the amount of crap I manage to accumulate in and around my apartment!",
       "comments": [],
       "audience": "public",
-      "time": "1 December",
+      "time": "29 November",
       "privacy_sensitivity": "mid",
       "post_id": "5"
    },
    {
       "name": "alex_doe",
       "content": "Happy birthday to my Mom. Enjoy your special day and thanks for always putting up with me. I love you.✨🖤",
-      "comments": [
-         {
-            "name": "jack_scout",
-            "content": "Best of Birthday wishes to her",
-            "liked": true
-         }
-      ],
-      "audience": "public",
-      "time": "1 December",
-      "privacy_sensitivity": "low",
-      "post_id": "6"
+      "comments": [],
+      "audience":"public",
+      "time":"27 November",
+      "privacy_sensitivity":"low",
+      "post_id":"6"
    },
    {
       "name": "alex_doe",
@@ -67,7 +61,7 @@
       "content": "Days off are so fun!",
       "comments": [],
       "audience": "public",
-      "time": "1 December",
+      "time": "25 November",
       "privacy_sensitivity": "high",
       "post_id": "7"
    },
@@ -76,27 +70,29 @@
       "content": "If you don't like the way i do something shut the hell up and do it ur self and if u don't understand me leave me alone!",
       "comments": [],
       "audience": "public",
-      "time": "1 December",
+      "time": "25 November",
       "privacy_sensitivity": "mid",
       "post_id": "8"
    },
    {
-      "name": "alex_doe",
-      "content": "My managers are the best for the get-to-together party they threw last weekend!😇🤔",
-      "comments": [],
-      "audience": "public",
-      "time": "1 December",
-      "privacy_sensitivity": "low",
-      "post_id": "9"
+      "name":"alex_doe",
+      "content":"My managers are the best for the get-to-together party they threw last weekend!😇🤔",
+      "comments":[],
+      "audience":"public",
+      "time":"20 Novemeber",
+      "privacy_sensitivity":"low",
+      "post_id":"9"
    },
    {
-      "name": "alex_doe",
-      "photo": "/assets/personal_photos/dog_bite.jpeg",
-      "content": "I got drunk and then my dog bit me. It hurts so bad!",
-      "comments": [],
-      "audience": "public",
-      "time": "1 December",
-      "privacy_sensitivity": "high",
-      "post_id": "10"
+      "name":"alex_doe",
+      "photo":"../public/assets/personal_photos/dog_bite.jpeg",
+      "content":"I got drunk and then my dog bit me. It hurts so bad!",
+      "comments":[
+         
+      ],
+      "audience":"public",
+      "time":"15 November",
+      "privacy_sensitivity":"high",
+      "post_id":"10"
    }
 ]
