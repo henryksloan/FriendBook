@@ -48,7 +48,7 @@ const Post = forwardRef(({ name, time, audience, photo, liked, comments, content
   }
 
   function getPostObject() {
-    return { name, time, audience, photo, liked, comments, content };
+    return { post_id, name, time, audience, photo, liked, comments, content };
   }
 
   function updatePost(updateFunc) {

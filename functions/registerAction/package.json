@@ -1,10 +1,10 @@
 {
-  "name": "registerUser",
+  "name": "registerAction",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx functions-framework --target registerUser --port 8080",
+    "start": "npx functions-framework --target registerAction --port 8081",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

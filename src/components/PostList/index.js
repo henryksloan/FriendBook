@@ -109,7 +109,7 @@ function PostList({ forTimeline, whoseTimeline }) {
   }
 
   function registerPostAction(post_id, action, details) {
-    // console.log(post_id, action, details);
+    console.log(post_id, action, details);
 
     const parsedPostId = parseInt(post_id);
     if (!isNaN(parsedPostId)) {
