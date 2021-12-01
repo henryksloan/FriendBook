@@ -144,7 +144,7 @@ const Post = forwardRef(({ name, time, audience, photo, liked, comments, content
 
       {renderChangeAudiencePopup &&
         <Popup title="Select audience" onClickClose={() => setRenderChangeAudiencePopup(false)}>
-          <AudienceSelect onSelect={selectAudience} />
+          <AudienceSelect audience={audience} onSelect={selectAudience} />
         </Popup>}
 
       {renderEditPostPopup &&
