@@ -5,19 +5,25 @@ import './index.css';
 import ProfileLink from '../ProfileLink'
 import ExitExperiment from './ExitExperiment'
 
+import { registerUser } from '../../api';
+
 function Scenario() {
   let location = useLocation();
   let session_id = new URLSearchParams(location.search).get("session_id");
   let condition = new URLSearchParams(location.search).get("condition");
   useEffect(() => {
-    const storage_session_id = localStorage.getItem("session_id");
+    let storage_session_id = localStorage.getItem("session_id");
     if (!storage_session_id && session_id) {
       localStorage.setItem("session_id", session_id);
+      storage_session_id = session_id;
     }
-    const storage_condition = localStorage.getItem("condition");
+    let storage_condition = localStorage.getItem("condition");
     if (!storage_condition && condition) {
       localStorage.setItem("condition", condition);
+      storage_condition = condition;
     }
+
+    registerUser();
   }, []);
 
   return (

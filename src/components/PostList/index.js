@@ -10,6 +10,7 @@ import Post from './Post';
 import Suggestion from './Suggestion';
 
 import suggestions from '../../data/tone.json';
+import { registerAction } from '../../api';
 
 function PostList({ forTimeline, whoseTimeline }) {
   // TODO: Either acknowledge for_user, or make different lists for different users
@@ -107,8 +108,8 @@ function PostList({ forTimeline, whoseTimeline }) {
     setPosts(postsCopy);
   }
 
-  function registerAction(post_id, action, details) {
-    console.log(post_id, action, details);
+  function registerPostAction(post_id, action, details) {
+    // console.log(post_id, action, details);
 
     const parsedPostId = parseInt(post_id);
     if (!isNaN(parsedPostId)) {
@@ -117,9 +118,7 @@ function PostList({ forTimeline, whoseTimeline }) {
       setPostsModified(newPostsModified);
     }
 
-    if (details) {
-      // TODO
-    }
+    registerAction(post_id, action, details);
   }
 
   function getPostContent(suggestionNum) {
@@ -136,7 +135,7 @@ function PostList({ forTimeline, whoseTimeline }) {
           ref={el => postsRef.current[i] = el}
           onUpdate={newPost => onUpdate(i, newPost)}
           onDelete={() => setPosts(posts.slice(0, i).concat(posts.slice(i + 1)))}
-          registerAction={registerAction}
+          registerAction={registerPostAction}
           {...post} />)}
 
       {(whichSuggestion != 0) &&
