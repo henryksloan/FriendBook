@@ -47,11 +47,12 @@ function Header() {
 
   return (
     <header className="Header">
-      <Link to={{
+      {/* <Link to={{
         pathname: '/',
         state: { fromHeader: true }
       }} onClick={() => registerClick('Clicked on the FriendBook Button', 'to go to the NewsFeed', 'Header')}><h1 id="logo">FriendBook</h1>
-      </Link>
+      </Link> */}
+      <a><h1 id="logo">FriendBook</h1></a>
 
       <ul id='user'>
         <Link to={{
