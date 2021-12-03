@@ -12,10 +12,11 @@ export function registerUser() {
   }
 }
 
-export function registerAction(post_id, action, details, suggestion = false) {
+export function registerAction(post_id, action, details, suggestion = false, suggestion_action) {
   let session_id = localStorage.getItem("session_id");
 
-  const target_id = `p${post_id}` + (suggestion ? `_suggestion_${action}` : '');
+  const suggestion_label = suggestion_action ? `_${suggestion_action}` : '';
+  const target_id = `p${post_id}` + (suggestion ? `_suggestion${suggestion_label}_${action}` : '');
 
   if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
     // Development

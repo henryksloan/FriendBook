@@ -43,7 +43,8 @@ function PostList({ forTimeline, whoseTimeline }) {
       // the suggestion, don't show the suggestion
       if (!postsModified[suggestionNum - 1] && !suggestionsDismissed[suggestionNum - 1]) {
         if (whichSuggestion == 0) {
-          registerAction(suggestionNum, "show", "", true);
+          let suggestion = suggestions.find(obj => parseInt(obj.post_id) == suggestionNum);
+          registerAction(suggestionNum, "show", "", true, suggestion && suggestion.action);
           setWhichSuggestion(suggestionNum);
         }
       }
@@ -68,14 +69,15 @@ function PostList({ forTimeline, whoseTimeline }) {
 
   function rejectSuggestion(suggestionNum) {
     dismissSuggestion(suggestionNum);
-    registerAction(suggestionNum, "reject", "", true);
+    let suggestion = suggestions.find(obj => parseInt(obj.post_id) == suggestionNum);
+    registerAction(suggestionNum, "reject", "", true, suggestion && suggestion.action);
   }
 
   function acceptSuggestion(suggestionNum) {
     dismissSuggestion(suggestionNum);
-    registerAction(suggestionNum, "accept", "", true);
-
     let suggestion = suggestions.find(obj => parseInt(obj.post_id) == suggestionNum);
+    registerAction(suggestionNum, "accept", "", true, suggestion && suggestion.action);
+
     if (!suggestion) return;
 
     let postIndex = posts.findIndex(post => post.post_id == suggestionNum);
