@@ -133,3 +133,16 @@
 .incomplete-popup h3 {
   display: inline-block;
 }
+
+.incomplete-confirm-buttons {
+  display: flex;
+  justify-content: right;
+}
+
+.incomplete-confirm-popup .popup-content {
+  padding: 0 16px 8px 24px;
+}
+
+.incomplete-confirm-popup .Button {
+  margin-left: 8px;
+}
