@@ -115,7 +115,10 @@ const Post = forwardRef(({ name, time, audience, photo, liked, comments, content
           <ProfileLink name={name} />
           <p className="post-time">{time}</p>
           {" · "}
-          <img className="audience-icon" src={audienceIcon(audience)} title={audienceText(audience)} onClick={() => setRenderChangeAudiencePopup(true)} />
+          <span className="audience" onClick={() => setRenderChangeAudiencePopup(true)} >
+            <img className="audience-icon" src={audienceIcon(audience)} title={audienceText(audience)} />
+            <p className="audience-text">{audienceText(audience)}</p>
+          </span>
         </div>
         <Menu labelType={menuLabelTypes.HORIZONTAL_DOTS} options={menuOptions} icons={menuIcons} width="300px" />
       </div>

@@ -110,7 +110,7 @@
   cursor: pointer;
 }
 
-.scenario-list-item:hover .tooltiptext{
+.scenario-list-item:hover .tooltiptext {
   visibility: visible;
   display: inline;
 }

@@ -94,15 +94,18 @@
   padding: 3px 0px 5px 9px;
 }
 
+.audience {
+  cursor: pointer;
+}
+
 .audience-icon {
   width: 12px;
   height: 12px;
-  cursor: pointer;
   background: white;
   border-radius: 80px;
 }
 
-.audience-icon:hover {
+.audience:hover .audience-icon {
   filter: brightness(53%);
   -webkit-filter: brightness(53%);
   -webkit-transition: all 0.5s ease;
@@ -110,6 +113,11 @@
   -o-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+.audience-text {
+  display: inline;
+  margin-left: 6px;
 }
 
 .confirm-delete-popup {
