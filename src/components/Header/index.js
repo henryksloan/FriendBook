@@ -63,12 +63,12 @@ function Header() {
           <li id='username' className='header-text'>  Alex</li>
         </Link>
 
-        <Link to={{
+        {/* <Link to={{
           pathname: '/',
           state: { fromNewsFeed: true }
-        }} onClick={() => registerClick('Clicked on the Home Button', 'to go to the NewsFeed', 'Header')}>
-          <li className='header-text'>Home</li>
-        </Link>
+        }} onClick={() => registerClick('Clicked on the Home Button', 'to go to the NewsFeed', 'Header')}> */}
+        <li className='header-text'>Home</li>
+        {/* </Link> */}
 
         <li className='header-text' data-tip="Not Implemented">Create</li>
 
