@@ -26,6 +26,17 @@ function AudienceSelect({ onSelect, audience, friends_except_list, specific_frie
     }
   }
 
+  function selectedFriendList() {
+    switch (whichFriendMenu) {
+      case "friends_except":
+        return friendsExcept;
+      case "specific_friends":
+        return specificFriends;
+      default:
+        return [];
+    }
+  }
+
   function toggleFriendSelected(friend) {
     switch (whichFriendMenu) {
       case "friends_except": {
@@ -82,14 +93,24 @@ function AudienceSelect({ onSelect, audience, friends_except_list, specific_frie
     return friendList.map(friend => friendButton(friend));
   }
 
+  function cancelSelectFriends() {
+    setWhichFriendMenu(null);
+    setFriendsExcept(friends_except_list ? friends_except_list : []);
+    setSpecificFriends(specific_friends_list ? specific_friends_list : []);
+  }
+
+  function saveSelectFriends() {
+    onSelect(whichFriendMenu, selectedFriendList());
+  }
+
   return (
     <div className="AudienceSelect">
       {whichFriendMenu
         ? <div className="audience-friend-menu">
           <div className="audience-friend-buttons">{makeFriendButtons()}</div>
           <div className="audience-friend-bottom-buttons">
-            <Button type="cancel" onClick={() => { }}>Cancel</Button>
-            <Button type="confirm" onClick={() => { }}>Save changes</Button>
+            <Button type="cancel" onClick={cancelSelectFriends}>Cancel</Button>
+            <Button type="confirm" onClick={saveSelectFriends}>Save changes</Button>
           </div>
         </div>
         : <div className="audience-options">{options.map(option => makeOption(option[0], option[1]))}</div>}

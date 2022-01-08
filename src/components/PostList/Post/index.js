@@ -75,11 +75,21 @@ const Post = forwardRef(({ name, time, audience, photo, liked, comments, content
     updatePost(post => post.content = editPostText);
   }
 
-  function selectAudience(newAudience) {
+  function selectAudience(newAudience, selectedFriends) {
     setRenderChangeAudiencePopup(false);
     let details = `"${audience}" => "${newAudience}"`;
     registerAction(post_id, "change_audience", details);
-    updatePost(post => post.audience = newAudience);
+    updatePost(post => {
+      post.audience = newAudience;
+      switch (newAudience) {
+        case "friends_except":
+          post.friends_except_list = selectedFriends;
+          break;
+        case "specific_friends":
+          post.specific_friends_list = selectedFriends;
+          break;
+      }
+    });
   }
 
   function deletePost() {
