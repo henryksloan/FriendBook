@@ -1,31 +1,98 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './index.css';
 import AudienceOption from './AudienceOption';
+import Button from '../../Button';
+import { friendList } from '../../../utils/profile'
 
-function AudienceSelect({ onSelect, audience }) {
-  function select(audience) {
-    return () => { onSelect(audience); };
+function AudienceSelect({ onSelect, audience, friends_except_list, specific_friends_list }) {
+  // If null, show option buttons,
+  // else show some friend selection list (like "friends_except")
+  const [whichFriendMenu, setWhichFriendMenu] = useState(null);
+  const [friendsExcept, setFriendsExcept] = useState(friends_except_list ? friends_except_list : []);
+  const [specificFriends, setSpecificFriends] = useState(specific_friends_list ? specific_friends_list : []);
+
+  const options = [["public", false], ["friends", false], ["friends_except", true], ["specific_friends", true], ["only_me", false], ["custom", false]];
+
+  function friendSelected(friend) {
+    switch (whichFriendMenu) {
+      case "friends_except":
+        return friendsExcept.includes(friend);
+      case "specific_friends":
+        return specificFriends.includes(friend);
+      default:
+        return false;
+    }
+  }
+
+  function toggleFriendSelected(friend) {
+    switch (whichFriendMenu) {
+      case "friends_except": {
+        let copy = [...friendsExcept];
+        let index = copy.indexOf(friend);
+        if (index !== -1) {
+          copy.splice(index, 1);
+        } else {
+          copy.push(friend);
+        }
+        setFriendsExcept(copy);
+        break;
+      }
+      case "specific_friends": {
+        let copy = [...specificFriends];
+        let index = copy.indexOf(friend);
+        if (index !== -1) {
+          copy.splice(index, 1);
+        } else {
+          copy.push(friend);
+        }
+        setSpecificFriends(copy);
+        break;
+      }
+    }
+  }
+
+  function select(audience, more) {
+    return more
+      ? () => { setWhichFriendMenu(audience) }
+      : () => { onSelect(audience); };
   }
 
   function makeOption(audienceOption, moreButton = false) {
     return <AudienceOption
+      key={audienceOption}
       audience={audienceOption}
       moreButton={moreButton}
       selected={audience == audienceOption}
-      onClick={select(audienceOption)} />;
+      onClick={select(audienceOption, moreButton)} />;
   }
 
-  // TODO: Implement buttons that bring up new inputs, like friends except
+  function friendButton(friend) {
+    return <AudienceOption
+      key={friend}
+      audience="friend_button"
+      friend={friend}
+      selected={friendSelected(friend)}
+      onClick={() => toggleFriendSelected(friend)}
+    />;
+  }
+
+  function makeFriendButtons() {
+    return friendList.map(friend => friendButton(friend));
+  }
+
   return (
     <div className="AudienceSelect">
-      {makeOption("public")}
-      {makeOption("friends")}
-      {makeOption("friends_except", true)}
-      {makeOption("specific_friends", true)}
-      {makeOption("only_me")}
-      {makeOption("custom")}
+      {whichFriendMenu
+        ? <div className="audience-friend-menu">
+          <div className="audience-friend-buttons">{makeFriendButtons()}</div>
+          <div className="audience-friend-bottom-buttons">
+            <Button type="cancel" onClick={() => { }}>Cancel</Button>
+            <Button type="confirm" onClick={() => { }}>Save changes</Button>
+          </div>
+        </div>
+        : <div className="audience-options">{options.map(option => makeOption(option[0], option[1]))}</div>}
     </div>
   );
 }
@@ -33,6 +100,8 @@ function AudienceSelect({ onSelect, audience }) {
 AudienceSelect.propTypes = {
   onSelect: PropTypes.func,
   audience: PropTypes.string,
+  friends_except_list: PropTypes.arrayOf(PropTypes.string),
+  specific_friends_list: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default AudienceSelect;

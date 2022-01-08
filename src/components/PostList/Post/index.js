@@ -22,7 +22,7 @@ import delete_icon from '../../../assets/icons/delete_icon.png';
 import AudienceSelect from '../AudienceSelect';
 import EditPost from '../EditPost';
 
-const Post = forwardRef(({ name, time, audience, photo, liked, comments, content, post_id, onUpdate, onDelete, registerAction }, ref) => {
+const Post = forwardRef(({ name, time, audience, photo, liked, comments, content, post_id, friends_except_list, specific_friends_list, onUpdate, onDelete, registerAction }, ref) => {
   const inputRef = useRef(null);
   const [renderChangeAudiencePopup, setRenderChangeAudiencePopup] = useState(false);
   const [renderEditPostPopup, setRenderEditPostPopup] = useState(false);
@@ -149,7 +149,8 @@ const Post = forwardRef(({ name, time, audience, photo, liked, comments, content
 
       {renderChangeAudiencePopup &&
         <Popup title="Select audience" onClickClose={() => setRenderChangeAudiencePopup(false)}>
-          <AudienceSelect audience={audience} onSelect={selectAudience} />
+          <AudienceSelect audience={audience} onSelect={selectAudience}
+            friends_except_list={friends_except_list} specific_friends_list={specific_friends_list} />
         </Popup>}
 
       {renderEditPostPopup &&
@@ -183,6 +184,8 @@ Post.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.object),
   content: PropTypes.string,
   post_id: PropTypes.string,
+  friends_except_list: PropTypes.arrayOf(PropTypes.string),
+  specific_friends_list: PropTypes.arrayOf(PropTypes.string),
   onUpdate: PropTypes.func,
   onDelete: PropTypes.func,
   registerAction: PropTypes.func,

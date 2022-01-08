@@ -1,5 +1,5 @@
 .AudienceSelect {
-  padding: 16px 0 24px 0;
+  height: 456px;
 }
 
 .AudienceOption {
@@ -24,6 +24,10 @@
 
 .AudienceOption.selected {
   background: #eaf3ff;
+}
+
+.audience-options {
+  padding: 16px 0 24px 0;
 }
 
 .audience-option-icon-container {
@@ -52,6 +56,13 @@
   margin: auto;
 }
 
+.audience-profile-pic {
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  border-radius: 30px;
+}
+
 .audience-option-text h3, .audience-option-text p {
   margin: 0;
 }
@@ -69,4 +80,27 @@
 .audience-option-select {
   margin-left: auto;
   margin-right: 9px;
+}
+
+.audience-friend-menu {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.audience-friend-buttons {
+  height: 416px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.audience-friend-bottom-buttons .Button {
+  margin-left: 8px;
+}
+
+.audience-friend-bottom-buttons {
+  display: flex;
+  justify-content: right;
+  margin: auto 0;
+  margin-right: 8px;
 }

@@ -2,6 +2,21 @@ import React from 'react';
 import ProfileLink from '../components/ProfileLink';
 
 const mainUser = 'alex_doe';
+export const friendList = [
+  'bill_gates',
+  'coca_cola',
+  'esther_rorgash',
+  'ira_slipan',
+  'jack_scout',
+  'jim_mend',
+  'kyle_parker',
+  'loren_payton',
+  'lydia_chopover',
+  'sasha_riley',
+  'starbucks',
+  'tanya_strotman',
+  'trevin_noushy',
+  'vice_news'];
 
 const profilePics = {
   'alex_doe': process.env.PUBLIC_URL + '/assets/users/alex_profile_img.jpg',
