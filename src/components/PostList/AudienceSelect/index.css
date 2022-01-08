@@ -1,5 +1,5 @@
 .AudienceSelect {
-  height: 456px;
+  height: 476px;
 }
 
 .AudienceOption {
@@ -89,7 +89,7 @@
 }
 
 .audience-friend-buttons {
-  height: 416px;
+  height: 436px;
   overflow-y: auto;
   overscroll-behavior: contain;
 }
