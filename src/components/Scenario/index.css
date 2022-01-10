@@ -18,7 +18,7 @@
 }
 
 .scenario-text {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.9;
   color: #57575d;
   padding: 5px;
@@ -30,7 +30,7 @@
 }
 
 .scenario-task {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.9;
   color: red;
   padding-left: 5px;
@@ -61,7 +61,7 @@
   padding: 4px 8px;
   background: white;
   text-align: left;
-  font-size: 12px;
+  font-size: 14px;
   white-space: pre-line;
   margin-bottom: 9px;
 }

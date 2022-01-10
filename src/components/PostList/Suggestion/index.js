@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Draggable from 'react-draggable';
@@ -12,11 +12,23 @@ import dinosaur_image from '../../../assets/icons/dinosaur.png';
 import suggestions from '../../../data/tone.json';
 
 function Suggestion({ whichSuggestion, postText, postPhoto, onClickClose, onClickOkay }) {
+  const [width, setWidth] = useState(window.innerWidth);
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    }
+  }, []);
+
   let tone = localStorage.getItem("condition");
   let suggestion = suggestions.find(obj => parseInt(obj.post_id) == whichSuggestion && obj.tone == tone);
   if (!suggestion) return <span></span>;
   return (
-    <Draggable>
+    <Draggable disabled={width <= 800}>
       <Popup title="Privacy Tip" onClickClose={onClickClose}>
         <div className="suggestion-content">
           <img src={dinosaur_image} draggable="false" width="210" height="215" />

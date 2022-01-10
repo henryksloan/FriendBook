@@ -30,7 +30,7 @@ function Scenario() {
     <div className="Scenario">
       <h3 className="scenario-head">What is my Task?</h3>
 
-      <p className="scenario-text">You are <strong><ProfileLink name="alex_doe" /> </strong> from Fresno. California and regularly use FriendBook ( a social media site) for professional and leisure activities. You are planning on applying for a job, go through the posts you have made in the recent past and see if you are okay with them.</p>
+      <p className="scenario-text">You are <strong><ProfileLink name="alex_doe" /> </strong> from Fresno, California and regularly use FriendBook ( a social media site) for professional and leisure activities. You are planning on applying for a job, go through the posts you have made in the recent past and see if you are okay with them.</p>
 
       <p className="scenario-task">For each of your posts, you should consider taking any of the following actions based on how you feel or think the post would reflect on you to a potential employer.</p>
 
