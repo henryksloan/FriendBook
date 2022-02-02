@@ -50,11 +50,11 @@ function PostList({ forTimeline, whoseTimeline }) {
       }
     }
 
-    if (50 <= suggestionTimer && suggestionTimer <= 100) {
+    if (40 <= suggestionTimer && suggestionTimer <= 50) {
       suggestIfValid(1);
-    } else if (110 <= suggestionTimer && suggestionTimer <= 160) {
+    } else if (60 <= suggestionTimer && suggestionTimer <= 70) {
       suggestIfValid(7);
-    } else if (170 <= suggestionTimer && suggestionTimer <= 220) {
+    } else if (80 <= suggestionTimer && suggestionTimer <= 90) {
       suggestIfValid(10);
     } else {
       setWhichSuggestion(0); // No suggestion by default

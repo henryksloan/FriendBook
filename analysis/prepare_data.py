@@ -50,6 +50,9 @@ def main():
         new_row['time_spent'] = int(time.mktime(time_end) - time.mktime(time_start))
 
         # The user's tone condition comes from the sessions table
+        user_sessions = sessions_df[sessions_df['session_id'] == session_id]
+        if len(user_sessions) == 0:
+            continue
         user_session = sessions_df[sessions_df['session_id'] == session_id].iloc[0]
         new_row['tone_condition'] = user_session['tone_condition']
 

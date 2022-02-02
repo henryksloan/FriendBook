@@ -14,7 +14,7 @@ function ExitExperiment() {
   const [sureChecked, setSureChecked] = useState(false);
   const [hasAttemptedExit, setHasAttemptedExit] = useLocalStorage("has_attempted_exit", false);
 
-  const time_to_exit = 130;
+  const time_to_exit = 60;
 
   function exitUrl(session_id, condition) {
     return `https://clemson.ca1.qualtrics.com/jfe/form/SV_25EacAIT7YpnukK?session_id=${session_id}&condition=${condition}`;
