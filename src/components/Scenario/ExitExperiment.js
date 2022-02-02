@@ -12,7 +12,9 @@ function ExitExperiment() {
   const [renderCompletionPopup, setRenderCompletionPopup] = useState(false);
   const [renderConfirmPopup, setRenderConfirmPopup] = useState(false);
   const [sureChecked, setSureChecked] = useState(false);
+  /* eslint-disable no-unused-vars */
   const [hasAttemptedExit, setHasAttemptedExit] = useLocalStorage("has_attempted_exit", false);
+  /* eslint-enable no-unused-vars */
 
   const time_to_exit = 60;
 
@@ -25,8 +27,9 @@ function ExitExperiment() {
   }
 
   function onClickExit() {
-    let previouslyAttemptedExit = hasAttemptedExit;
-    setHasAttemptedExit(true);
+    // Uncomment these two lines to reenable multiple-attempt exiting
+    let previouslyAttemptedExit = false; // hasAttemptedExit;
+    // setHasAttemptedExit(true);
     let timer = localStorage.getItem("suggestion_timer");
     if (timer >= time_to_exit) {
       exitExperiment();
