@@ -4,6 +4,7 @@ import Popup from '../Popup'
 import Button from '../Button';
 
 import { useLocalStorage } from '../../hooks/local_storage';
+import { registerExit } from '../../api';
 
 function ExitExperiment() {
   let session_id = localStorage.getItem("session_id");
@@ -23,7 +24,7 @@ function ExitExperiment() {
   }
 
   function exitExperiment() {
-    window.location.href = exitUrl(session_id, condition);
+    registerExit(() => { window.location.href = exitUrl(session_id, condition); });
   }
 
   function onClickExit() {

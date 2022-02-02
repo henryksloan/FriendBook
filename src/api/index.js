@@ -28,3 +28,18 @@ export function registerAction(post_id, action, details, suggestion = false, sug
       .catch(error => console.log(error));
   }
 }
+
+export async function registerExit(callback) {
+  let session_id = localStorage.getItem("session_id");
+  if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+    // Development
+    await fetch(`http://localhost:8082?session_id=${session_id}`)
+      .catch(error => console.log(error))
+      .then(callback);
+  } else {
+    // Production
+    await fetch(`https://us-central1-friendbook-328622.cloudfunctions.net/registerExit?session_id=${session_id}`)
+      .catch(error => console.log(error))
+      .then(callback);
+  }
+}
