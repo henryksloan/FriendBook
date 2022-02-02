@@ -4,5 +4,7 @@ CREATE TYPE TONE AS ENUM ('passive', 'neutral', 'assertive');
 CREATE TABLE IF NOT EXISTS user_sessions (
   user_id SERIAL PRIMARY KEY,
   qualtrics_session_id VARCHAR NOT NULL,
-  tone TONE NOT NULL
+  tone TONE NOT NULL,
+  start_time TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  exit_time TIMESTAMPTZ
 );
