@@ -4,8 +4,8 @@ import os.path
 import time
 
 ACTIONS_COLUMNS = ['id', 'session_id', 'target_id', 'action_type', 'details', 'performed_time']
-SESSIONS_COLUMNS = ['id', 'session_id', 'tone_condition']
-OUTPUT_COLUMNS = ['user_id', 'time_spent', 'tone_condition',
+SESSIONS_COLUMNS = ['id', 'session_id', 'tone_condition', 'start_time', 'exit_time']
+OUTPUT_COLUMNS = ['user_id', 'old_time_spent', 'new_time_spent', 'tone_condition',
         'suggestion_delete_post', 'suggestion_edit_post', 'suggestion_change_audience',
         'action_delete', 'action_edit_post', 'action_change_audience',
         'total_actions', 'posts_interacted_with']
@@ -47,7 +47,7 @@ def main():
         # This includes suggestions being accepted, rejected, or just appearing
         times = [parse_timestamp(ts) for ts in actions['performed_time']]
         time_start, time_end  = min(times), max(times)
-        new_row['time_spent'] = int(time.mktime(time_end) - time.mktime(time_start))
+        new_row['old_time_spent'] = int(time.mktime(time_end) - time.mktime(time_start))
 
         # The user's tone condition comes from the sessions table
         user_sessions = sessions_df[sessions_df['session_id'] == session_id]
@@ -55,6 +55,10 @@ def main():
             continue
         user_session = sessions_df[sessions_df['session_id'] == session_id].iloc[0]
         new_row['tone_condition'] = user_session['tone_condition']
+        if not pd.isna(user_session['start_time']) and not pd.isna(user_session['exit_time']):
+            new_exit_time = time.mktime(parse_timestamp(user_session['exit_time']))
+            new_start_time = time.mktime(parse_timestamp(user_session['start_time']))
+            new_row['new_time_spent'] = int(new_exit_time - new_start_time)
 
         # For each type of suggestion, search for either acceptance or rejection
         # 1=Accept, -1=Reject, 0=Ignore or not seen
